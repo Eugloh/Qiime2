@@ -49,6 +49,7 @@ start=$SECONDS
 
 DIR=$(pwd)
 Manifest=${DIR}"/Manifest-localisation-filessmall.txt"
+MetaNames=${DIR}"/Metadata18_OB_F.txt"
 OUT=${DIR}"/output"
 LOG=${DIR}"/log"
 
@@ -72,26 +73,6 @@ if [ ! -e ${OUT}/paired-end-demux.qza ]; then
         echo "DONE"
 else echo "ALREADY DONE"
 fi
-
-#########################################       old2       #########################################
-# echo "assuming already demuplexed data"
-# print_centered "2 - qiime demux summarize"
-
-# << ////
-# Usage:
-# qiime demux summarize --i-data paired-end-demux.qza --o-visualization paired-end-demux.qzv
-# Utility: 
-# demux               Plugin for demultiplexing & viewing sequence quality.
-# ////
-
-# if [ ! -e ${OUT}/paired-end-demux.qzv ]; then
-#      begin=$SECONDS
-#      qiime demux summarize \
-#           --i-data ${OUT}/paired-end-demux.qza \
-#           --o-visualization ${OUT}/paired-end-demux.qzv
-#      echo "DONE"
-# else echo "ALREADY DONE"
-# fi
 
 #########################################       2       #########################################
 print_centered "2 - qiime cutadapt trim-paired on demultiplexed data"
@@ -127,8 +108,10 @@ Utility:
   denoise-paired  Denoise and dereplicate paired-end sequences
 ////
 
-qiime dada2 denoise-paired -\
-    -i-demultiplexed-seqs ${OUT}/paired-end-demux.trim.qza \
+if [ ! -e ${OUT}/oktable-dada2.qza ]; then
+    begin=$SECONDS
+qiime dada2 denoise-paired \
+    --i-demultiplexed-seqs ${OUT}/paired-end-demux.trim.qza \
     --p-trim-left-f 20 \
     --p-trim-left-r 0 \
     --p-trunc-len-f 290 \
@@ -137,11 +120,68 @@ qiime dada2 denoise-paired -\
     --o-representative-sequences ${OUT}/okrep-seqs-dada2.qza \
     --o-denoising-stats ${OUT}/okden-seqs-dada2.qza \
     --o-table ${OUT}/oktable-dada2.qza --verbose > ${LOG}/okall-dada2.log
+        echo "DONE"
+else echo "ALREADY DONE"
+fi
 
 
 #########################################       4       #########################################
+print_centered "4 - qiime feature-table filter-samples"
+
+<< ////
+Usage:
+qiime feature-table filter-samples --i-table oktable-dada2.qza --m-metadata-file MetadataRun2_OB_F.txt --o-filtered-table Run2_OB_F-table-dada2.qza
+Utility: 
+  feature-table       Plugin for working with sample by feature tables.
+  filter-samples      Filter samples from table
+////
+
+if [ ! -e ${OUT}/Run2_OB_F-table-dada2.qza ]; then
+qiime feature-table filter-samples \
+     --i-table ${OUT}/oktable-dada2.qza \
+     --m-metadata-file ${MetaNames} \
+     --o-filtered-table ${OUT}/Run2_OB_F-table-dada2.qza
+        echo "DONE"
+else echo "ALREADY DONE"
+fi
+
+
 #########################################       5       #########################################
+print_centered "5 - qiime feature-table filter-seqs"
+
+<< ////
+Usage:
+qiime feature-table filter-seqs --i-data okrep-seqs-dada2.qza --i-table Run2_OB_F-table-dada2.qza --o-filtered-data Run2_OB_F-rep-seqs-dada2.qza
+Utility: 
+  feature-table       Plugin for working with sample by feature tables.
+  filter-seqs         Filter features from sequences
+////
+
+if [ ! -e ${OUT}/Run2_OB_F-rep-seqs-dada2.qza ]; then
+qiime feature-table filter-seqs \
+     --i-data ${OUT}/okrep-seqs-dada2.qza \
+     --i-table ${OUT}/Run2_OB_F-table-dada2.qza \
+     --o-filtered-data ${OUT}/Run2_OB_F-rep-seqs-dada2.qza
+        echo "DONE"
+else echo "ALREADY DONE"
+fi
+
 #########################################       6       #########################################
+print_centered "5 - qiime tools export the dada2 table to readable"
+
+<< ////
+Usage:
+qiime tools export --input-path table-dada2.qza --output-path exported-table-dada2.tsv
+Utility: 
+  tools               Tools for working with QIIME 2 files.
+  export            Export data from a QIIME 2 Artifact or a Visualization
+////
+
+qiime tools export --input-path table-dada2.qza \
+     --output-path exported-table-dada2.tsv
+
+
+
 #########################################       7       #########################################
 #########################################       8       #########################################
 #########################################       9       #########################################
