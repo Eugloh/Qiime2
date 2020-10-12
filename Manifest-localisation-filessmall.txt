@@ -1,0 +1,4 @@
+sample-id	forward-absolute-filepath	reverse-absolute-filepath
+FOB18-T0	/media/lohmanne/data/analysis/DAVID_rerun/data/OB18IS-F_S11_L001_R1_001.fastq.gz	/media/lohmanne/data/analysis/DAVID_rerun/data/OB18IS-F_S11_L001_R2_001.fastq.gz
+FOB18-T6	/media/lohmanne/data/analysis/DAVID_rerun/data/OB18FS-F_S29_L001_R1_001.fastq.gz	/media/lohmanne/data/analysis/DAVID_rerun/data/OB18FS-F_S29_L001_R2_001.fastq.gz
+SOB18-T12	/media/lohmanne/data/analysis/DAVID_rerun/data/OB18FS2-S_S94_L001_R1_001.fastq.gz	/media/lohmanne/data/analysis/DAVID_rerun/data/OB18FS2-S_S94_L001_R2_001.fastq.gz
