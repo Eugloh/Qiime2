@@ -31,7 +31,7 @@ MetaNames=${DIR}"/files/metada/Metadata"
 OUT=${DIR}"/output"
 LOG=${DIR}"/log"
 OTU_database=${DIR}"/database/greengenes"
-threads=32
+threads=8
 pathOUT=${DIR}"/pathabun_core_metrics_out"
 picrustOUT=${DIR}"/q2-picrust2_output"
 
@@ -41,6 +41,20 @@ reversecut="GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG GTCTCGTGGGCTCGGAGATGTGTATAAGAGACA
 
 fcutadap=($forwardcut)
 rcutadap=($reversecut)
+
+echo 'Here is an overview of the general steps of the QIIME2 pipeline:
+
+Step1: Importing and demultiplex data, summarize the results, and examing quality of the reads.
+
+Step 2: Quality controlling sequences and building Feature Table and Feature Data
+
+Step 3: Summarizing Feature Table and Feature Data
+
+Step 4: Assigning Taxonomy
+
+Step 5: Generating a phylogenetic tree
+
+Step 6: Analyzing Alpha and Beta diversities'
 
 
 #########################################   BEGINNING   #########################################
@@ -57,10 +71,8 @@ if [ ! -d ${LOG} ]; then
   mkdir ${LOG}
 fi 
 
-print_centered " Everything is well set ! "
-print_centered "."
-print_centered "."
-print_centered "."
+print_centered " Everything is well set ! . \n . \n . \n"
+
 
 #########################################       1       #########################################
 
@@ -68,7 +80,7 @@ print_centered "1 - qiime tools import"
 
 << ////
 Usage:
-qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_ok/qime2try/manifest_CRC_OB.txt --output-path paired-end-demux.qza --input-format PairedEndFastqManifestPhred33V2
+qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_/qime2try/manifest_CRC_OB.txt --output-path paired-end-demux.qza --input-format PairedEndFastqManifestPhred33V2
 Utility:   
 tools               Tools for working with QIIME 2 files.
 ////
@@ -84,10 +96,10 @@ if [ ! -e ${OUT}/${el}/paired-end-demux${el}.qza ]; then
 
      echo ${el} " DONE"
 else echo ${el} " ALREADY DONE"
-fi 
+fi &
 done
 wait
-
+date
 ########################################       2       #########################################
 print_centered "2 - qiime cutadapt trim-paired on demultiplexed data"
 
@@ -111,15 +123,16 @@ if [ ! -e ${OUT}/${el}/paired-end-demux${el}_trim.qza ]; then
         --o-trimmed-sequences ${OUT}/${el}/paired-end-demux${el}_trim.qza ;
      echo ${el} " DONE"
 else echo ${el} " ALREADY DONE"
-fi 
+fi &
 done
 wait
+date
 #########################################       3       #########################################
 print_centered "3 - qiime dada2 denoise-paired"
 
 << ////
 Usage:
-qiime dada2 denoise-paired --i-demultiplexed-seqs paired-end-demux.trim.qza --p-trim-left-f 20 --p-trim-left-r 0 --p-trunc-len-f 290 --p-trunc-len-r 260 --p-no-hashed-feature-ids --o-representative-sequences okrep-seqs-dada2.qza --o-denoising-stats okden-seqs-dada2.qza --o-table oktable-dada2.qza --verbose
+qiime dada2 denoise-paired --i-demultiplexed-seqs paired-end-demux.trim.qza --p-trim-left-f 20 --p-trim-left-r 0 --p-trunc-len-f 290 --p-trunc-len-r 260 --p-no-hashed-feature-ids --o-representative-sequences rep-seqs-dada2.qza --o-denoising-stats den-seqs-dada2.qza --o-table table-dada2.qza --verbose
 This method denoises paired-end sequences, dereplicates them, and filters
   chimeras.
 Utility: 
@@ -143,13 +156,13 @@ Outputs:
                          The resulting feature table.
 
 Good to know : 
-     ${OUT}/okrep-seqs-dada2.qza will be FeatureData[Sequence]
-     ${OUT}/okden-seqs-dada2.qza will be SampleData[DADA2Stats]
-     ${OUT}/oktable-dada2.qza will be FeatureTable[Frequency]
+     ${OUT}/rep-seqs-dada2.qza will be FeatureData[Sequence]
+     ${OUT}/den-seqs-dada2.qza will be SampleData[DADA2Stats]
+     ${OUT}/table-dada2.qza will be FeatureTable[Frequency]
 ////
 
 for el in 1 2 3 4; do
-if [ ! -e ${OUT}/${el}/oktable-dada2_${el}.qza ]; then
+if [ ! -e ${OUT}/${el}/table-dada2_${el}.qza ]; then
     begin=$SECONDS ;
 exe qiime dada2 denoise-paired \
      --i-demultiplexed-seqs ${OUT}/${el}/paired-end-demux${el}_trim.qza \
@@ -159,22 +172,46 @@ exe qiime dada2 denoise-paired \
      --p-trunc-len-r 260 \
      --p-no-hashed-feature-ids \
      --p-n-threads ${threads} \
-     --o-representative-sequences ${OUT}/${el}/okrep-seqs-dada2_${el}.qza \
-     --o-denoising-stats ${OUT}/${el}/okden-seqs-dada2_${el}.qza \
-     --o-table ${OUT}/${el}/oktable-dada2_${el}.qza --verbose  > ${LOG}/okall-dada2_${el}.log ;
+     --o-representative-sequences ${OUT}/${el}/rep-seqs-dada2_${el}.qza \
+     --o-denoising-stats ${OUT}/${el}/den-seqs-dada2_${el}.qza \
+     --o-table ${OUT}/${el}/table-dada2_${el}.qza --verbose  > ${LOG}/all-dada2_${el}.log ;
      echo ${el} " DONE"
 else echo ${el} " ALREADY DONE"
-fi 
+fi &
 done
 wait
+date
+###############################||| I need to merge my tables |||#################################
+#########################################      3.5      #########################################
+print_centered "3.5 - qiime merge"
+
+if [ ! -d ${OUT}/merged ];then
+  mkdir ${OUT}/merged
+fi ;
+
+exe qiime feature-table merge \
+  --i-tables ${OUT}/1/table-dada2_1.qza \
+  --i-tables ${OUT}/2/table-dada2_2.qza \
+  --i-tables ${OUT}/3/table-dada2_3.qza \
+  --i-tables ${OUT}/4/table-dada2_4.qza \
+  --o-merged-table ${OUT}/merged/table-dada2_merged.qza ;
 
 
-# #########################################       4       #########################################
+exe qiime feature-table merge-seqs \
+  --i-data ${OUT}/1/rep-seqs-dada2_1.qza \
+  --i-data ${OUT}/2/rep-seqs-dada2_2.qza \
+  --i-data ${OUT}/3/rep-seqs-dada2_3.qza \
+  --i-data ${OUT}/4/rep-seqs-dada2_4.qza \
+  --o-merged-data ${OUT}/merged/run-rep-seqs_merged.qza ;
+
+date
+
+# # #########################################       4       #########################################
 # print_centered "4 - qiime feature-table filter-samples"
 
 # << ////
 # Usage:
-# qiime feature-table filter-samples --i-table oktable-dada2.qza --m-metadata-file MetadataRun2_OB_F.txt --o-filtered-table Run2_OB_F-table-dada2.qza
+# qiime feature-table filter-samples --i-table table-dada2.qza --m-metadata-file MetadataRun2_OB_F.txt --o-filtered-table Run2_OB_F-table-dada2.qza
 # Utility: 
 #   feature-table       Plugin for working with sample by feature tables.
 #   filter-samples      Filter samples from table
@@ -189,23 +226,24 @@ wait
 #                        The resulting feature table filtered by sample.
 
 # ////
-
-# if [ ! -e ${OUT}/Run2_OB_F-table-dada2.qza ]; then
+# for el in 1 2 3 4; do
+# if [ ! -e ${OUT}/${el}/table-dada2_run${el}.qza ]; then
 #      qiime feature-table filter-samples \
-#      --i-table ${OUT}/oktable-dada2.qza \
-#      --m-metadata-file ${MetaNames} \
-#      --o-filtered-table ${OUT}/Run2_OB_F-table-dada2.qza
+#      --i-table ${OUT}/${el}/table-dada2_${el}.qza \
+#      --m-metadata-file ${MetaNames}${el}".txt" \
+#      --o-filtered-table ${OUT}/${el}/table-dada2_run${el}.qza
 #      echo "DONE"
 # else echo "ALREADY DONE"
-# fi
-
+# fi &
+# done
+# wait
 
 # #########################################       5       #########################################
 # print_centered "5 - qiime feature-table filter-seqs"
 
 # << ////
 # Usage:
-# qiime feature-table filter-seqs --i-data okrep-seqs-dada2.qza --i-table Run2_OB_F-table-dada2.qza --o-filtered-data Run2_OB_F-rep-seqs-dada2.qza
+# qiime feature-table filter-seqs --i-data rep-seqs-dada2.qza --i-table Run2_OB_F-table-dada2.qza --o-filtered-data Run2_OB_F-rep-seqs-dada2.qza
 # Utility: 
 #   feature-table       Plugin for working with sample by feature tables.
 #   filter-seqs         Filter features from sequences
@@ -213,7 +251,7 @@ wait
 
 # if [ ! -e ${OUT}/Run2_OB_F-rep-seqs-dada2.qza ]; then
 # qiime feature-table filter-seqs \
-#      --i-data ${OUT}/okrep-seqs-dada2.qza \
+#      --i-data ${OUT}/rep-seqs-dada2.qza \
 #      --i-table ${OUT}/Run2_OB_F-table-dada2.qza \
 #      --o-filtered-data ${OUT}/Run2_OB_F-rep-seqs-dada2.qza
 #         echo "DONE"
@@ -226,7 +264,7 @@ wait
 
 # << ////
 # Usage:
-# qiime tools import --input-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_ok/qime2try/99_otus.fasta --output-path 99_otus.qza --type 'FeatureData[Sequence]'
+# qiime tools import --input-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_/qime2try/99_otus.fasta --output-path 99_otus.qza --type 'FeatureData[Sequence]'
 # Utility: 
 #   tools               Tools for working with QIIME 2 files.
 #   import            Import data into a new QIIME 2 Artifact.
@@ -249,7 +287,7 @@ wait
 
 # << ////
 # Usage:
-# qiime tools import --type FeatureData[Taxonomy] --input-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_ok/qime2try/99_otu_taxonomy.txt --input-format HeaderlessTSVTaxonomyFormat --output-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_ok/qime2try/99_otu_taxonomy.qza
+# qiime tools import --type FeatureData[Taxonomy] --input-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_/qime2try/99_otu_taxonomy.txt --input-format HeaderlessTSVTaxonomyFormat --output-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_/qime2try/99_otu_taxonomy.qza
 # Utility: 
 #   tools               Tools for working with QIIME 2 files.
 #   import            Import data into a new QIIME 2 Artifact.
@@ -334,7 +372,7 @@ wait
 #      begin=$SECONDS
 #      qiime feature-classifier classify-sklearn \
 #      --i-classifier ${OUT}/classifier.trained.qza \
-#      --i-reads ${OUT}/okrep-seqs-dada2.qza \
+#      --i-reads ${OUT}/rep-seqs-dada2.qza \
 #      --o-classification ${OUT}/newtaxonomy.sklearn.qza 
 #      echo "DONE"
 # else echo "ALREADY DONE"
@@ -357,7 +395,7 @@ wait
 # if [ ! -e ${OUT}/FOB_freq-2.qza ]; then
 #      begin=$SECONDS
 #      qiime taxa collapse \
-#      --i-table ${OUT}/oktable-dada2.qza \
+#      --i-table ${OUT}/table-dada2.qza \
 #      --i-taxonomy ${OUT}/newtaxonomy.sklearn.qza  \
 #      --p-level 2 \
 #      --o-collapsed-table ${OUT}/FOB_freq-2.qza
@@ -414,7 +452,7 @@ wait
 # if [ ! -e ${OUT}/aligned-rep-seqs.qza ]; then
 #      begin=$SECONDS
 #      qiime alignment mafft \
-#      --i-sequences ${OUT}/okrep-seqs-dada2.qza  \
+#      --i-sequences ${OUT}/rep-seqs-dada2.qza  \
 #      --o-alignment ${OUT}/aligned-rep-seqs.qza
 
 #      echo "DONE"
@@ -609,7 +647,7 @@ wait
 # #      mkdir ${DIR}/diversity
 # #      begin=$SECONDS
 # #      qiime diversity core-metrics-phylogenetic \
-# #      --i-table ${OUT}/oktable-dada2.qza \
+# #      --i-table ${OUT}/table-dada2.qza \
 # #      --i-phylogeny r ${OUT}/rooted-tree.qza \
 # #      --p-sampling-depth 5801 \
 # #      --output-dir ${DIR}/diversity \
@@ -638,7 +676,7 @@ wait
 # if [ ! -e ${OUT}/hierarchy1.qza  ]; then
 #      begin=$SECONDS
 #      qiime gneiss correlation-clustering \
-#      --i-table ${OUT}/oktable-dada2.qza \
+#      --i-table ${OUT}/table-dada2.qza \
 #      --p-pseudocount 1 \
 #      --o-clustering ${OUT}/hierarchy1.qza         
 
@@ -694,7 +732,7 @@ wait
 # if [ ! -e ${OUT}/balances.qza ]; then
 #      begin=$SECONDS
 #      qiime gneiss ilr-hierarchical \
-#      --i-table ${OUT}/oktable-dada2.qza  \
+#      --i-table ${OUT}/table-dada2.qza  \
 #      --i-tree ${OUT}/hierarchy1.qza \
 #      --o-balances ${OUT}/balances.qza
 
@@ -744,8 +782,8 @@ wait
 # if [ ! -d ${picrustOUT} ]; then
 #      begin=$SECONDS
 #      qiime picrust2 full-pipeline \
-#      --i-table ${OUT}/oktable-dada2.qza \
-#      --i-seq ${OUT}/okrep-seqs-dada2.qza \
+#      --i-table ${OUT}/table-dada2.qza \
+#      --i-seq ${OUT}/rep-seqs-dada2.qza \
 #      --output-dir ${picrustOUT} \
 #      --p-threads ${threads} \
 #      --p-hsp-method pic \
