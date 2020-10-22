@@ -1,0 +1,67 @@
+#SampleID	Run	TimePoint	Sample	BarcodeSequence	Age	PhysicalActivity	BMI	Gender	Smoke	TwinType	Weight	W-Hratio	InterventionType																																												
+#q2:types	categorical	categorical	categorical	categorical	numeric	numeric	categorical	categorical	categorical	categorical	categorical	categorical	numeric																																												
+S0203-T6	run1	T6	S0203	GGACTCCT-TTATGCGA	52.6	Mod	31.8	F	NO	OW	74.7	0.9	diet																																												
+S0204-T6	run1	T6	S0204	TAGGCATG-TTATGCGA	52.6	Mod	26.4	F	NO	NW	69.6	0.8	normal																																												
+S0407-T6	run1	T6	S0407	CTCTCTAC-TTATGCGA	27.6	Mod	30.4	F	NO	OW	71.6	0.8	diet																																												
+S0408-T6	run1	T6	S0408	CGAGGCTG-TTATGCGA	27.6	Low	24.1	F	NO	NW	60.2	0.8	normal																																												
+S0509-T0	run4	T0	S0509	AAGAGGCA-GAGCCTTA	18	No	28.2	F	NO	OW	74.8		diet																																												
+S0510-T0	run4	T0	S0510	GTAGAGGA-GAGCCTTA	18	No	22.8	F	SI	NW	61.4		normal																																												
+S0611-T0	run4	T0	S0611	GCTCATGA-GAGCCTTA	42	Mod	34.3	M	NO	OW	93.5	0.9	diet																																												
+S0612-T0	run4	T0	S0612	ATCTCAGG-GAGCCTTA	42	Mod	26.1	M	SI	NW	76.3	1	normal																																												
+S0713-T0	run4	T0	S0713	TAAGGCGA-TTATGCGA	35	Low	31.5	F	NO	OW	69.9	0.9	diet																																												
+S0713-T6	run1	T6	S0713	CTCTCTAC-TTATGCGA	35.6	Low	27.6	F	NO	OW	62.1	0.9	diet																																												
+S0714-T0	run4	T0	S0714	CGTACTAG-TTATGCGA	35	Low	23.4	F	NO	NW	54	0.8	normal																																												
+S0714-T6	run1	T6	S0714	CGAGGCTG-TTATGCGA	35.6	Low	21.7	F	NO	NW	50.2	0.8	normal																																												
+S0815-T0	run4	T0	S0815	AGGCAGAA-TTATGCGA	26	Mod	29	F	NO	OW	82.7	0.9	diet																																												
+S0816-T0	run4	T0	S0816	TCCTGAGC-TTATGCGA	26	Mod	23	F	NO	NW	66.5	0.9	normal																																												
+S0917-T0	run4	T0	S0917	GGACTCCT-TTATGCGA	22	Low	30.8	M	NO	OW	80.9	0.9	diet																																												
+S0918-T0	run4	T0	S0918	TAGGCATG-TTATGCGA	22	Mod	26.3	M	NO	NW	68.9	0.9	normal																																												
+S1019-T0	run1	T0	S1019	GCTCATGA-GAGCCTTA	42	No	26.6	F	NO	OW	64	0.8	diet																																												
+S1020-T0	run1	T0	S1020	ATCTCAGG-GAGCCTTA	42	Mod	22.4	F	NO	NW	53.7	0.8	normal																																												
+S1121-T0	run1	T0	S1121	TAAGGCGA-TTATGCGA	46	Low	26.2	M	NO	OW	86.7	1	diet																																												
+S1121-T6	run1	T6	S1121	GCTCATGA-TTATGCGA	46.6	Low	22.6	M	NO	OW	74.7	0.8	diet																																												
+S1122-T0	run1	T0	S1122	CGTACTAG-TTATGCGA	46	Low	20.4	M	SI	NW	68.4	0.8	normal																																												
+S1122-T6	run1	T6	S1122	ATCTCAGG-TTATGCGA	46.6	Low	20.2	M	SI	NW	67.7	0.8	normal																																												
+S1223-T0	run1	T0	S1223	TACGCTGC-TTCTAGCT	48	Low	29.5	F	SI	OW	81.3	0.7	diet																																												
+S1223-T6	run1	T6	S1223	ACTCGCTA-CCTAGAGT	48.6	Low	26.9	F	SI	OW	74.1	0.7	diet																																												
+S1224-T0	run1	T0	S1224	ATGCGCAG-TTCTAGCT	48	No	24.4	F	SI	NW	68	0.7	normal																																												
+S1224-T6	run1	T6	S1224	GGAGCTAC-CCTAGAGT	48.6	No	24	F	SI	NW	66.8	0.7	normal																																												
+S1325-T0	run1	T0	S1325	AGGCAGAA-TTATGCGA	25	Low	29.8	F	SI	OW	75.4	0.8	diet																																												
+S1326-T0	run1	T0	S1326	TCCTGAGC-TTATGCGA	25	No	23.4	F	SI	NW	59.9	0.7	normal																																												
+S1427-T0	run1	T0	S1427	TAGCGCTC-TTCTAGCT	46	Low	32.3	F	EX	OW	92.2	0.7	diet																																												
+S1427-T6	run1	T6	S1427	GCGTAGTA-CCTAGAGT	46.6	High	28	F	EX	OW	80	0.7	diet																																												
+S1428-T0	run1	T0	S1428	ACTGAGCG-TTCTAGCT	46	Low	24.8	F	EX	NW	69.1	0.7	normal																																												
+S1428-T6	run1	T6	S1428	CGGAGCCT-CCTAGAGT	46.6	No	25.9	F	EX	NW	72.2	0.7	normal																																												
+S1529-T0	run2	T0	S1529	CCTAAGAC-TTCTAGCT	37	Low	28.1	M	NO	OW	77.5	0.9	diet																																												
+S1529-T6	run2	T6	S1529	TACGCTGC-CCTAGAGT	37.6	Mod	24.7	M	NO	OW	68	0.9	diet																																												
+S1530-T0	run2	T0	S1530	CGATCAGT-TTCTAGCT	37	Mod	23.6	M	NO	NW	66.7	0.9	normal																																												
+S1530-T6	run2	T6	S1530	ATGCGCAG-CCTAGAGT	37.6	Mod	22.5	M	NO	NW	63.6	0.8	normal																																												
+S1631-T0	run2	T0	S1631	TGCAGCTA-TTCTAGCT	32	Low	29.7	F	NO	OW	89.9	0.7	diet																																												
+S1631-T6	run2	T0	S1631	TAGCGCTC-CCTAGAGT	32.6	Low	26.1	F	NO	OW	78.9	0.7	diet																																												
+S1632-T0	run2	T0	S1632	TCGACGTC-TTCTAGCT	32	Low	23.7	F	NO	NW	67.6	0.8	normal																																												
+S1632-T6	run2	T6	S1632	ACTGAGCG-CCTAGAGT	32.6	Low	23.9	F	NO	NW	68.2	0.7	normal																																												
+S1-T0	run3	T0	S1	TAAGGCGA-CTCTCTAT	S1	saliva	IIIB-IV	MSS	T3	OB	31.6	M	no	30	108	yes 2/w	yes 2-3/w	yes 1/w	yes 1/w	yes 1 ogni 2/w	yes 2-3/w	yes 2/w	yes 2/di	yes 2/di	yes 1-2/w	yes 1/di	yes 2/w	yes 2/di	occasionally	yes 1/di	yes 1/w	yes 2/di	yes	mai molto raramente	yes2/w	yes 2/w	never	yes 2/w	mai/ molto raramente	CGTACTAG-GTAAGGAG																	
+S10-T0	run3	T0	S10	GTAGAGGA-GTAAGGAG	S10	saliva	I-II	ND	T3	OW	27.5	M	ex	-0.5	101	never	never	never	never	never	yes 2-3/w	yes 2/w	yes 1/di	yes 1/di	yes 1 ogni 4/w	yes 1/di	yes 2/di	yes 1-2/di	occasionally	yes 2/di	yes 1/di	yes 1/di	never	never	yes 2/di	never	never	never	never	GTAGAGGA-GTAAGGAG																	
+S11-T0	run3	T0	S11	GCTCATGA-GTAAGGAG	S11	saliva	I-II	ND	T1	NW	24.1	F	ex	7.2	85	si	mai	si	si/no	mai	si	mai	si	mai	simai	si x 1/di	si x 1-2/di	si	si	si	si	never	never	si	si	si	never	si	GCTCATGA-GTAAGGAG																		
+S12-T0	run3	T0	S12	ATCTCAGG-GTAAGGAG	S12	saliva	IIIB-IV	MSS		NW	20.5	M	yes	24	81	yes 2-3/w	yes 1 ogni 2/w	yes 3/w	never	yes 1/w	yes 1-2/w	never	yes 2/di	never	yes 1-2/w	yes 1/di	yes 1/w	si x 1-2/di	never	yes 2/w	never	yes 4-5/w	never	never	yes 3/w	yes 5-6/wnever	yes 1/di	yes 1-2/di	ATCTCAGG-GTAAGGAG																		
+S13-T0	run3	T0	S13	TAAGGCGA-ACTGCATA	S13	saliva	I-II	MSS	T3	NW	23.1	M	ex	1.4	97	never	yes 1/w	yes 6/w	never	yes 1/w	yes 9 (3x3)	yes 2/w	yes 1-2/dinever	yes 2-3/w	yes 1/di	yes 3-4/w	yes 2/di	never	never	yes 1/di	yes 2/di	never	yes 1/w	never	never	never	yes 2-3/di	yes 1/di	TAAGGCGA-ACTGCATA																		
+S14-T0	run3	T0	S14	CGTACTAG-ACTGCATA	S14	saliva	IIA-IIB	ND	T3	OW	29.4	M	yes	-0.5	96	yes 1-2/w	yes 3-4/w	yes 1/w	never	yes 1/w	yes 3/w	yes 1/w	yes 1/di	never	yes 1/di	yes 1/w	yes 1/di	yes 1/w	never	yes 2/w	yes 2/w	yes 2/w	never	never	yes 2-3/w	never	never	yes 7-8/di	yes 2/w	CGTACTAG-ACTGCATA																	
+S15-T0	run3	T0	S15	AGGCAGAA-ACTGCATA	S15	saliva	I-II	MSI	T3	NW	21.5	F	no	31	82	yes 4-5/w	never	yes 3/w	yes 1-2/w	never	yes 1/w	yes 3/w	yes 1/di	never	yes 2-3/w	yes 1 ogni 2/w	yes 3-4/w	yes 2/di	never	yes 2-3/w	yes 1/di	yes 1/di	yes 1 ogni 2/w	yes 1/di	yes 1/di	yes 1-2/di	never	yes 3/di	yes 1/di	AGGCAGAA-ACTGCATA																	
+S16-T0	run3	T0	S16	TCCTGAGC-ACTGCATA	S16	saliva	IIA-IIB	MSS	T3	NW	19.6	F	ex	-0.5	70	yes 3/w	yes 2/w	yes 3-4/w	yes 1/w	never	yes 1 ogni 2/w	never	yes 1/di	never	yes 2/w	yes 3/w	yes 1/di	yes 2/w	yes 1/di	yes 1-2/di	yes 1-2/di	yes 2/di	yes 3/w	mai molto raramente	mai molto raramente	yes 1/we	never	yes 2-3/di	mai molto raramente	TCCTGAGC-ACTGCATA																	
+S17-T0	run3	T0	S17	GGACTCCT-ACTGCATA	S17	saliva	IIA-IIB	ND	T4	OW	25.9	M	no	2	92	yes 2-3/w	yes 2/w	yes 2-3/w	yes 1/w	yes 2/w	yes 1/w	yes 1-2/wyes 3/di	never	yes 2/w	never	yes 6/w	yes 2/di	yes 1/di	yes 3/w	yes 4/w	yes 2/di	yes 2/w	never	never	yes 2/w	never	never		GGACTCCT-ACTGCATA																		
+S19-T0	run3	T0	S19	TAGGCATG-ACTGCATA	S19	saliva	IIIB-IV	MSS	T3	OW	28.6	M	yes	7.2	105	yes 2/w	yes 1/w	yes 2/w	yes 1/w	mai molto raramente	yes 1-2/w	yes 2/w	yes 2/di	yes 1/w	yes 1/w	yes 2/w	yes 1/di	yes 2/di	never	yes 2/w	yes 1/di	yes 2/di	never	never	mai molto raramente	mai molto raramente	never	yes 1-2/di	yes 3/w	TAGGCATG-ACTGCATA																	
+S2-T0	run3	T0	S2	AGGCAGAA-GTAAGGAG	S2	saliva	IIIB-IV	MSS	T4	NW	22.6	F	ex	15.2	85	yes	yes 1-2/w	yes 1/w	yes 1/w	occasionally	yes 1 ogni 2/w	rarely	yes 2/di	yes	yes 1/w	yes 1/di	yes 1/w	yes	occasionally	yes 2/w	yes 2/w	yes 1/w	yes 1 ogni 2/w	occasionally	yes 5/w	never	never	yes 2/di	occasionally	AGGCAGAA-GTAAGGAG																	
+S20-T0	run3	T0	S20	CTCTCTAC-ACTGCATA	S20	saliva	IIIB-IV	MSS	T3	NW	23.8	M	ex	0.8	97	yes 4-5/w	yes 1/w	yes 4-5/w	yes 1-2/w	yes 1-2/w	yes 1/w	yes 1-2/w	yes 2/di	never	yes 2/w	yes 1/di	yes 4-5/w	yes 2/di	never	yes 1/di	yes 1/di	yes 2-3/di	yes 1-2/w	never	yes 3-4/w	yes 1/w	never	yes 2/di	yes 3/w	CTCTCTAC-ACTGCATA																	
+S21-T0	run3	T0	S21	CGAGGCTG-ACTGCATA	S21	saliva	I-II	MSS	T3	OW	26.1	M	no	5.5	106	yes 3	w	yes 1	w	never	never	yes 2	w	mai molto raramente	1	month	yes 2	di	never	yes 2	w	yes 1	di	yes 3-4	w	yes 2	di	never	yes 2	w	yes 1	di	yes 2	di	never	never	never	never	never	never	yes 1	di	CGAGGCTG-ACTGCATA				
+S22-T0	run3	T0	S22	AAGAGGCA-ACTGCATA	S22	saliva	IIA-IIB	MSI	T4	OW	26.7	F	ex	54.2	99	yes 1-2	w	yes 2-3	w	yes 6	w	never	never	yes 2	w	mai molto raramente	yes 2	di	never	yes 2-3	w	yes 1	di	yes 1	di	yes 2-3	w	mai molto raramente	yes 1	di	yes 1	di	yes 2	di	yes 1 ogni 2	w	mai molto raramente	yes 2-3	month	yes 1	di	never	never	never	AAGAGGCA-ACTGCATA		
+S23-T0	run3	T0	S23	GTAGAGGA-ACTGCATA	S23	saliva	IIIB-IV	MSS	T4	OW	26.9	F	no	1.2	86	yes 1-2	w	yes 2-3	w	yes 2	w	yes 1	w	yes 1 ogni 2	w	yes 1-2	wyes 1	w	yes 2	di	never	yes 1-2	w	yes 1	di	yes 2-3	di	yes 1	di	never	yes 4-5	w	never	yes 2	di	mai molto raramente	never	yes 1-2	w	yes 1	di	never	yes 1	di	never	GTAGAGGA-ACTGCATA	
+S24-T0	run3	T0	S24	GCTCATGA-ACTGCATA	S24	saliva	I-II	MSS	T3	NW	24.9	F	ex	-0.5	80.5	yes 2	w	yes 1	w	yes 2	w	yes 1	w	yes 1	w	yes 1	w	yes 2	w	yes 2	di	never	yes 1	w	yes 1	di	yes 1	di	yes 2	di	yes 1	di	yes 1	w	yes 1	di	yes 2	di	never	never	yes 1	di	never	never	miele 1 cucchiaio	never	GCTCATGA-ACTGCATA
+S25-T0	run3	T0	S25	ATCTCAGG-ACTGCATA	S25	saliva	IIIB-IV	MSI	T3	NW	24.9	F	ex	-0.5	85	yes 1-2	w	yes 1 ogni 2	w	yes 1	w	yes 1 ogni 2	w	yes 1	w	yes 1	w	yes 1-2	w	yes 7	w	never	yes 1 ogni 2	w	yes 1	di	yes 2	w	yes 2	di	yes 1	di	yes 2	w	yes 2	w	yes 2	di	never	never	1 ogni 20 days	never	never	yes 1	di	never	ATCTCAGG-ACTGCATA
+S26-T0	run3	T0	S26	TAAGGCGA-GTAAGGAG	S26	saliva	I-II	ND	T2	OB	33.6	F	no	1.8	127	yes 2	w	yes 1	w	yes 3	w	never	never	yes 3	w	yes 1	w			yes 2	w	yes 7	w	yes 7	w	yes 7	w		poca	never		raramente							TAAGGCGA-AAGGAGTA								
+S3-T0	run3	T0	S3	TCCTGAGC-GTAAGGAG	S3	saliva	I-II	MSS	T2	NW	24.7	M	ex	-0.5	80	yes 3/w	yes 1/w	yes	yes 2/w	yes 2-3/w	yes 2/w	yes 1 ogni 2/w	yes	never	yes 2/w	yes 1/di	yes 1-2/w	yes 1/di	occasionally	yes 1/di	yes 1/di	yes 2/di	si raramente	yes 1/di	yes	yes 3-4/w	never	never	never	TCCTGAGC-GTAAGGAG																	
+S4-T0	run3	T0	S4	GGACTCCT-GTAAGGAG	S4	saliva	IIA-IIB	ND	T3	NW	21.7	M	ex	90	82	yes 2-3/w	yes 1/w	yes 2-3/w	baccalà 1ogni 2w	yes 1 ogni 2/w	yes 1 ogni 2/w	yes 1/w	yes 1/di	never	yes 1/w	yes 1/w	yes 2-3/w	yes 1/di	occasionally	yes 2-3/w	yes 4/di	yes 2/di	never	yes1-2/w	yes 3-4/w	never	never	yes 4/w	raramente	GGACTCCT-GTAAGGAG																	
+S5-T0	run3	T0	S5	TAGGCATG-GTAAGGAG	S5	saliva	I-II	ND	T1	NW	18.3	F	no	12300	77	yes 2-3/w	yes 2-3/w	yes 1/w	never	yes 1/w	yes 1 ogni 2/w	yes 1 ogni 2/w	yes 2/di	never	yes 1/w	yes 1/di	yes 4-5/w	yes 2/di	raramente	yes 1/di	yes 1 ogni 2/w	yes 1/di	never	yes 1/w	occasionally	yes 1-2/w	never	yes 1-2/w	yes 1/w	TAGGCATG-GTAAGGAG																	
+S6-T0	run3	T0	S6	CTCTCTAC-GTAAGGAG	S6	saliva	I-II	ND	T2	NW	22.4	M	no	18.4	103	yes 2/w	yes 4/w	yes 2/w	yes 2/w	yes 1 ogni 2-3/w	yes 2/w	yes 1/di	yes 2/di	yes 1-2/w	yes 1/w	yes 1/di	yes 1/di	yes 2/di	never	yes 4/w	yes 3/w	yes 2/di	never	raramente	yes 2/w	never	never	yes 3/di	yes 1 ogni 2/w	CTCTCTAC-GTAAGGAG																	
+S7-T0	run3	T0	S7	CGAGGCTG-GTAAGGAG	S7	saliva	IIA-IIB	MSS	T3	OW	29.4	F	no	2.1	96	yes 2/w	yes 1/w	yes 3/w	never	never	never	yes 1/w	yes 2/di	never	yes 1/w	never	yes 1/di	yes 2/di	never	yes 1/w	yes 2/di	yes 2/di	never	yes 1 ogni 2/w	yes 1/w	never	never	yes 1/di	never	CGAGGCTG-GTAAGGAG																	
+S8-T0	run3	T0	S8	CGAGGCTG-CTCTCTAT	S8	saliva	IIIB-IV	MSS	T4	NW	22.5	F	no	40.2	85	yes 2-3/w	yes 1/w	never	never	yes 2/w	yes 1-2/w	yes 1/w	yes 1/di	never	yes 1/w	never	yes 1/w	yes 2/di	never	yes 2-3/w	yes 1/di	yes 2/di	never	never	never	yes 1-2/di	never	yes 1/di	yes 1-2/di	CGAGGCTG-CTCTCTAT																	
+S9-T0	run3	T0	S9	AAGAGGCA-GTAAGGAG	S9	saliva	I-II	ND	T1	NW	24.2	M	ex	2.9	95	yes 1/w	yes 2-3/w	yes 1/w	yes 1/w	yes 1/w	yes 2/w	raramente	yes 2/di	never	yes 2/w	yes 2/di	yes 2/w	yes 2/w	never	yes 3/w	yes 3/w	yes 2/di	yes 1 ogni 2/w	mai molto raramente	yes 1/di	never	never	yes 1/di	yes 1/di	AAGAGGCA-GTAAGGAG																	

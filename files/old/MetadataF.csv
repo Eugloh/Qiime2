@@ -1,0 +1,70 @@
+																																																												
+1	7																																																											
+F0203-T0	run1	F0203	T0	TRUE	F0203-T0	0	52	Mod	31.9	F	NO	OW-T0	82.6	0.9	diet-T0	CTCTCTAC-CTATTAAG																																												
+F0203-T6	run1	F0203	T6	TRUE	F0203-T6	6	52.6	Mod	28.8	F	NO	OW-T6	74.7	0.9	diet-T1	AGGCAGAA-GAGCCTTA																																												
+F0204-T0	run1	F0204	T0	TRUE	F0204-T0	0	52	Mod	26.4	F	NO	NW-T0	69	0.9	normal-T0	CGAGGCTG-CTATTAAG																																												
+F0204-T6	run1	F0204	T6	TRUE	F0204-T6	6	52.6	Mod	26.5	F	NO	NW-T6	69.6	0.8	normal-T1	TCCTGAGC-GAGCCTTA																																												
+F0407-T0	run1	F0407	T0	TRUE	F0407-T0	0	27	Low	30.4	F	NO	OW-T0	77.9	0.8	diet-T0	AAGAGGCA-CTATTAAG																																												
+F0407-T6	run1	F0407	T6	TRUE	F0407-T6	6	27.6	Mod	28	F	NO	OW-T6	71.6	0.9	diet-T1	GGACTCCT-GAGCCTTA																																												
+F0408-T0	run1	F0408	T0	TRUE	F0408-T0	0	27	Low	24.1	F	NO	NW-T0	61.8	0.8	normal-T0	GTAGAGGA-CTATTAAG																																												
+F0408-T6	run1	F0408	T6	TRUE	F0408-T6	6	27.6	Low	23.5	F	NO	NW-T6	60.2	0.9	normal-T1	TAGGCATG-GAGCCTTA																																												
+F0509-T0	run1	F0509	T0	TRUE	F0509-T0	0	18	No	28.2	F	NO	OW-T0	74.8		diet-T0	GCTCATGA-CTATTAAG																																												
+F0510-T0	run1	F0510	T0	TRUE	F0510-T0	0	18	No	22.8	F	SI	NW-T0	61.4		normal-T0	ATCTCAGG-CTATTAAG																																												
+F0611-T0	run1	F0611	T0	TRUE	F0611-T0	0	42	Mod	34.3	M	NO	OW-T0	93.5	0.9	diet-T0	TAAGGCGA-AAGGCTAT																																												
+F0612-T0	run1	F0612	T0	TRUE	F0612-T0	0	42	Mod	26.1	M	SI	NW-T0	76.3	1	normal-T0	CGTACTAG-AAGGCTAT																																												
+F0713-T0	run1	F0713	T0	TRUE	F0713-T0	0	35	Low	31.5	F	NO	OW-T0	69.9	0.9	diet-T0	AGGCAGAA-AAGGCTAT																																												
+F0713-T6	run1	F0713	T6	TRUE	F0713-T6	6	35.6	Low	27.6	F	NO	OW-T6	62.1	0.9	diet-T1	CTCTCTAC-GAGCCTTA																																												
+F0714-T0	run1	F0714	T0	TRUE	F0714-T0	0	35	Low	23.4	F	NO	NW-T0	54	0.8	normal-T0	TCCTGAGC-AAGGCTAT																																												
+F0714-T6	run1	F0714	T6	TRUE	F0714-T6	6	35.6	Low	21.7	F	NO	NW-T6	50.2	0.8	normal-T1	CGAGGCTG-GAGCCTTA																																												
+F0815-T0	run1	F0815	T0	TRUE	F0815-T0	0	26	Mod	29	F	NO	OW-T0	82.7	0.9	diet-T0	GGACTCCT-AAGGCTAT																																												
+F0816-T0	run1	F0816	T0	TRUE	F0816-T0	0	26	Mod	23	F	NO	NW-T0	66.5	0.9	normal-T0	TAGGCATG-AAGGCTAT																																												
+F0917-T0	run1	F0917	T0	TRUE	F0917-T0	0	22	Low	30.8	M	NO	OW-T0	80.9	0.9	diet-T0	CTCTCTAC-AAGGCTAT																																												
+F0918-T0	run1	F0918	T0	TRUE	F0918-T0	0	22	Mod	26.3	M	NO	NW-T0	68.9	0.9	normal-T0	CGAGGCTG-AAGGCTAT																																												
+F1-T0	run3	F1	T0		F1	gut	IIIB-IV	MSS	T3	OB	31.6	M	no	30	108	yes 2/w	yes 2-3/w	yes 1/w	yes 1/w	yes 1 ogni 2/w	yes 2-3/w	yes 2/w	yes 2/di	yes 2/di	yes 1-2/w	yes 1/di	yes 2/w	yes 2/di	occasionally	yes 1/di	yes 1/w	yes 2/di	yes	mai molto raramente	yes2/w	yes 2/w	never	yes 2/w	mai/ molto raramente	CGTACTAG-GTAAGGAG																				
+F10-T0	run3	F10	T0		F10	gut	I-II	ND	T3	OW	27.5	M	ex	-0.5	101	never	never	never	never	never	yes 2-3	w	yes 2	w	yes 1	di	yes 1	di	yes 1 ogni 4	w	yes 1	di	yes 2	di	yes 1-2	di	occasionally	yes 2	di	yes 1	di	yes 1	di	never	never	yes 2	di	never	never	nevernever	GTAGAGGA-GTAAGGAG									
+F1019-T0	run1	F1019	T0	TRUE	F1019-T0	0	42	No	26.6	F	NO	OW-T0	64	0.8	diet-T0	AAGAGGCA-AAGGCTAT																																												
+F1020-T0	run1	F1020	T0	TRUE	F1020-T0	0	42	Mod	22.4	F	NO	NW-T0	53.7	0.8	normal-T0	GTAGAGGA-AAGGCTAT																																												
+F11-T0	run3	F11	T0		F11	gut	I-II	ND	T1	NW	24.1	F	ex	7.2	85	si	mai	si	si	no	mai	si	mai	si	mai	si	mai	si x 1	di	si x 1-2	di	si	si	si	si	never	never	si	si	si	never	si	GCTCATGA-GTAAGGAG																	
+F1121-T0	run1	F1121	T0	TRUE	F1121-T0	0	46	Low	26.2	M	NO	OW-T0	86.7	1	diet-T0	GCTCATGA-AAGGCTAT																																												
+F1121-T6	run1	F1121	T6	TRUE	F1121-T6	6	46.6	Low	22.6	M	NO	OW-T6	74.7	0.8	diet-T1	AAGAGGCA-GAGCCTTA																																												
+F1122-T0	run1	F1122	T0	TRUE	F1122-T0	0	46	Low	20.4	M	SI	NW-T0	68.4	0.8	normal-T0	ATCTCAGG-AAGGCTAT																																												
+F1122-T6	run1	F1122	T6	TRUE	F1122-T6	6	46.6	Low	20.2	M	SI	NW-T6	67.7	0.8	normal-T1	GTAGAGGA-GAGCCTTA																																												
+F12-T0	run3	F12	T0		F12	gut	IIIB-IV	MSS		NW	20.5	M	yes	24	81	yes 2-3	w	yes 1 ogni 2	w	yes 3	w	never	yes 1	w	yes 1-2	w	never	yes 2	di	never	yes 1-2	w	yes 1	di	yes 1	w	si x 1-2	di	never	yes 2	w	never	yes 4-5	w	never	never	yes 3	w	yes 5-6	w	never	yes 1	di	yes 1-2	di	ATCTCAGG-GTAAGGAG				
+F1223-T0	run1	F1223	T0	TRUE	F1223-T0	0	48	Low	29.5	F	SI	OW-T0	81.3	0.7	diet-T0	ACTCGCTA-TCGACTAG																																												
+F1223-T6	run1	F1223	T6	TRUE	F1223-T6	6	48.6	Low	26.9	F	SI	OW-T6	74.1	0.7	diet-T1	CCTAAGAC-TCGACTAG																																												
+F1224-T0	run1	F1224	T0	TRUE	F1224-T0	0	48	No	24.4	F	SI	NW-T0	68	0.7	normal-T0	GGAGCTAC-TCGACTAG																																												
+F1224-T6	run1	F1224	T6	TRUE	F1224-T6	6	48.6	No	24	F	SI	NW-T6	66.8	0.7	normal-T1	CGATCAGT-TCGACTAG																																												
+F13-T0	run3	F13	T0		F13	gut	I-II	MSS	T3	NW	23.1	M	ex	1.4	97	never	yes 1	w	yes 6	w	never	yes 1	w	yes 9 (3x3)	yes 2	w	yes 1-2	di	never	yes 2-3	w	yes 1	di	yes 3-4	w	yes 2	di	never	never	yes 1	di	yes 2	di	never	yes 1	w	never	never	never	yes 2-3	di	yes 1	di	TAAGGCGA-ACTGCATA						
+F1325-T0	run1	F1325	T0	TRUE	F1325-T0	0	25	Low	29.8	F	SI	OW-T0	75.4	0.8	diet-T0	TAAGGCGA-GAGCCTTA																																												
+F1326-T0	run1	F1326	T0	TRUE	F1326-T0	0	25	No	23.4	F	SI	NW-T0	59.9	0.7	normal-T0	CGTACTAG-GAGCCTTA																																												
+F14-T0	run3	F14	T0		F14	gut	IIA-IIB	ND	T3	OW	29.4	M	yes	-0.5	96	yes 1-2	w	yes 3-4	w	yes 1	w	never	yes 1	w	yes 3	w	yes 1	w	yes 1	di	neveryes 1	di	yes 1	w	yes 1	di	yes 1	w	never	yes 2	w	yes 2	w	yes 2	w	never	never	yes 2-3	w	never	never	yes 7-8	di	yes 2	w	CGTACTAG-ACTGCATA				
+F1427-T0	run1	F1427	T0	TRUE	F1427-T0	0	46	Low	32.3	F	EX	OW-T0	92.2	0.7	diet-T0	GCGTAGTA-TCGACTAG																																												
+F1427-T6	run1	F1427	T6	TRUE	F1427-T6	6	46.6	High	28	F	EX	OW-T6	80	0.7	diet-T1	TGCAGCTA-TCGACTAG																																												
+F1428-T0	run1	F1428	T0	TRUE	F1428-T0	0	46	Low	24.8	F	EX	NW-T0	69.1	0.7	normal-T0	CGGAGCCT-TCGACTAG																																												
+F1428-T6	run1	F1428	T6	TRUE	F1428-T6	6	46.6	No	25.9	F	EX	NW-T6	72.2	0.7	normal-T1	TCGACGTC-TCGACTAG																																												
+F15-T0	run3	F15	T0		F15	gut	I-II	MSI	T3	NW	21.5	F	no	31	82	yes 4-5	w	never	yes 3	w	yes 1-2	w	never	yes 1	w	yes 3	w	yes 1	di	neveryes 2-3	w	yes 1 ogni 2	w	yes 3-4	w	yes 2	di	never	yes 2-3	w	yes 1	di	yes 1	di	yes 1 ogni 2	w	yes 1	di	yes 1	di	yes 1-2	di	never	yes 3	di	yes 1	di	AGGCAGAA-ACTGCATA		
+F1529-T0	run2	F1529	T0	TRUE	F1529-T0	0	37	Low	28.1	M	NO	OW-T0	77.5	0.9	diet-T0	TACGCTGC-TCGACTAG																																												
+F1529-T6	run2	F1529	T6	TRUE	F1529-T6	6	37.6	Mod	24.7	M	NO	OW-T6	68	0.9	diet-T1	ACTCGCTA-TTCTAGCT																																												
+F1530-T0	run2	F1530	T0	TRUE	F1530-T0	0	37	Mod	23.6	M	NO	NW-T0	66.7	0.9	normal-T0	ATGCGCAG-TCGACTAG																																												
+F1530-T6	run2	F1530	T6	TRUE	F1530-T6	6	37.6	Mod	22.5	M	NO	NW-T6	63.6	0.8	normal-T1	GGAGCTAC-TTCTAGCT																																												
+F16-T0	run3	F16	T0		F16	gut	IIA-IIB	MSS	T3	NW	19.6	F	ex	-0.5	70	yes 3	w	yes 2	w	yes 3-4	w	yes 1	w	never	yes 1 ogni 2	w	never	yes 1	di	neveryes 2	w	yes 3	w	yes 1	di	yes 2	w	yes 1	di	yes 1-2	di	yes 1-2	di	yes 2	di	yes 3	w	mai molto raramente	mai molto raramente	yes 1	we	neveryes 2-3	di	mai molto raramente	TCCTGAGC-ACTGCATA					
+F1631-T0	run2	F1631	T0	TRUE	F1631-T0	0	32	Low	29.7	F	NO	OW-T0	89.9	0.7	diet-T0	TAGCGCTC-TCGACTAG																																												
+F1631-T6	run2	F1631	T6	TRUE	F1631-T6	6	32.6	Low	26.1	F	NO	OW-T6	78.9	0.7	diet-T1	GCGTAGTA-TTCTAGCT																																												
+F1632-T0	run2	F1632	T0	TRUE	F1632-T0	0	32	Low	23.7	F	NO	NW-T0	67.6	0.8	normal-T0	ACTGAGCG-TCGACTAG																																												
+F1632-T6	run2	F1632	T6	TRUE	F1632-T6	6	32.6	Low	23.9	F	NO	NW-T6	68.2	0.7	normal-T1	CGGAGCCT-TTCTAGCT																																												
+F17-T0	run3	F17	T0	FALSE		F17	gut	IIA-IIB	ND	T4	OW	25.9	M	no	2	92	yes 2-3	w	yes 2	w	yes 2-3	w	yes 1	w	yes 2	w	yes 1	w	yes 1-2	w	yes 3	di	never	yes 2	w	never	yes 6	w	yes 2	di	yes 1	di	yes 3	w	yes 4	w	yes 2	di	yes 2	w	never	never	yes 2	w	never	never		GGACTCCT-ACTGCATA		
+F19-T0	run3	F19	T0	FALSE		F19	gut	IIIB-IV	MSS	T3	OW	28.6	M	yes	7.2	105	yes 2	w	yes 1	w	yes 2	w	yes 1	w	mai molto raramente	yes 1-2	w	yes 2	w	yes 2	di	yes 1	w	yes 1	w	yes 2	w	yes 1	di	yes 2	di	never	yes 2	w	yes 1	di	yes 2	di	never	never	mai molto raramente	mai molto raramente	never	yes 1-2	di	yes 3	w	TAGGCATG-ACTGCATA		
+F2-T0	run3	F2	T0	FALSE		F2	gut	IIIB-IV	MSS	T4	NW	22.6	F	ex	15.2	85	yes	yes 1-2	w	yes 1	w	yes 1	w	occasionally	yes 1 ogni 2	w	rarely	yes 2	di	yes	yes 1	w	yes 1	di	yes 1	w	yes	occasionally	yes 2	w	yes 2	w	yes 1	w	yes 1 ogni 2	w	occasionally	yes 5	w	never	never	yes 2	di	occasionally	AGGCAGAA-GTAAGGAG					
+F20-T0	run3	F20	T0	FALSE		F20	gut	IIIB-IV	MSS	T3	NW	23.8	M	ex	0.8	97	yes 4-5	w	yes 1	w	yes 4-5	w	yes 1-2	w	yes 1-2	w	yes 1	w	yes 1-2	w	yes 2	di	never	yes 2	w	yes 1	di	yes 4-5	w	yes 2	di	never	yes 1	di	yes 1	di	yes 2-3	di	yes 1-2	w	never	yes 3-4	w	yes 1	w	neveryes 2	di	yes 3	w	CTCTCTAC-ACTGCATA
+F21-T0	run3	F21	T0	FALSE		F21	gut	I-II	MSS	T3	OW	26.1	M	no	5.5	106	yes 3	w	yes 1	w	never	never	yes 2	w	mai molto raramente	1	month	yes 2	di	neveryes 2	w	yes 1	di	yes 3-4	w	yes 2	di	never	yes 2	w	yes 1	di	yes 2	di	never	never	never	never	never	never	yes 1	di	CGAGGCTG-ACTGCATA							
+F22-T0	run3	F22	T0	FALSE		F22	gut	IIA-IIB	MSI	T4	OW	26.7	F	ex	54.2	99	yes 1-2	w	yes 2-3	w	yes 6	w	never	never	yes 2	w	mai molto raramente	yes 2	di	never	yes 2-3	w	yes 1	di	yes 1	di	yes 2-3	w	mai molto raramente	yes 1	di	yes 1	di	yes 2	di	yes 1 ogni 2	w	mai molto raramente	yes 2-3	month	yes 1	di	never	never	never	AAGAGGCA-ACTGCATA				
+F23-T0	run3	F23	T0	FALSE		F23	gut	IIIB-IV	MSS	T4	OW	26.9	F	no	1.2	86	yes 1-2	w	yes 2-3	w	yes 2	w	yes 1	w	yes 1 ogni 2	w	yes 1-2	w	yes 1	w	yes 2	di	never	yes 1-2	w	yes 1	di	yes 2-3	di	yes 1	di	never	yes 4-5	w	never	yes 2	di	mai molto raramente	never	yes 1-2	w	yes 1	di	never	yes 1	di	never	GTAGAGGA-ACTGCATA		
+F24-T0	run3	F24	T0	FALSE		F24	gut	I-II	MSS	T3	NW	24.9	F	ex	-0.5	80.5	yes 2	w	yes 1	w	yes 2	w	yes 1	w	yes 1	w	yes 1	w	yes 2	w	yes 2	di	never	yes 1	w	yes 1	di	yes 1	di	yes 2	di	yes 1	di	yes 1	w	yes 1	di	yes 2	di	never	never	yes 1	di	never	never	miele 1 cucchiaio	never	GCTCATGA-ACTGCATA		
+F25-T0	run3	F25	T0	FALSE		F25	gut	IIIB-IV	MSI	T3	NW	24.9	F	ex	-0.5	85	yes 1-2	w	yes 1 ogni 2	w	yes 1	w	yes 1 ogni 2	w	yes 1	w	yes 1	w	yes 1-2	w	yes 7	w	never	yes 1 ogni 2	w	yes 1	di	yes 2	w	yes 2	di	yes 1	di	yes 2	w	yes 2	w	yes 2	di	never	never	1 ogni 20 days	never	never	yes 1	di	never	ATCTCAGG-ACTGCATA		
+F26-T0	run3	F26	T0	FALSE		F26	gut	I-II	ND	T2	OB	33.6	F	no	1.8	127	yes 2/w	yes 1/w	yes 3/w	never	never	yes 3/w	yes 1/w			yes 2/w	yes 7/w	yes 7/w	yes 7/w		poca	never	raramente							TAAGGCGA-AAGGAGTA																				
+F3-T0	run3	F3	T0	FALSE		F3	gut	I-II	MSS	T2	NW	24.7	M	ex	-0.5	80	yes 3	w	yes 1	w	yes	yes 2	w	yes 2-3	w	yes 2	w	yes 1 ogni 2	w	yes	never	yes 2	w	yes 1	di	yes 1-2	w	yes 1	di	occasionally	yes 1	di	yes 1	di	yes 2	di	si raramente	yes 1	di	yes	yes 3-4	w	nevernever	never	TCCTGAGC-GTAAGGAG					
+F4-T0	run3	F4	T0	FALSE		F4	gut	IIA-IIB	ND	T3	NW	21.7	M	ex	90	82	yes 2-3	w	yes 1	w	yes 2-3	w	baccalà 1ogni 2w	yes 1 ogni 2	w	yes 1 ogni 2	wyes 1	w	yes 1	di	never	yes 1	w	yes 1	w	yes 2-3	w	yes 1	di	occasionally	yes 2-3	w	yes 4	di	yes 2	di	never	yes1-2	w	yes 3-4	w	never	never	yes 4	w	raramente	GGACTCCT-GTAAGGAG			
+F5-T0	run3	F5	T0	FALSE		F5	gut	I-II	ND	T1	NW	18.3	F	no	12300	77	yes 2-3	w	yes 2-3	w	yes 1	w	never	yes 1	w	yes 1 ogni 2	w	yes 1 ogni 2	w	yes 2	di	never	yes 1	w	yes 1	di	yes 4-5	w	yes 2	di	raramente	yes 1	di	yes 1 ogni 2	w	yes 1	di	never	yes 1	w	occasionally	yes 1-2	w	never	yes 1-2	w	yes 1	w	TAGGCATG-GTAAGGAG	
+F6-T0	run3	F6	T0	FALSE		F6	gut	I-II	ND	T2	NW	22.4	M	no	18.4	103	yes 2	w	yes 4	w	yes 2	w	yes 2	w	yes 1 ogni 2-3	w	yes 2	w	yes 1	di	yes 2	di	yes 1-2	w	yes 1	w	yes 1	di	yes 1	di	yes 2	di	never	yes 4	w	yes 3	w	yes 2	di	never	raramente	yes 2	w	never	never	yes 3	di	yes 1 ogni 2	w	CTCTCTAC-GTAAGGAG
+F7-T0	run3	F7	T0	FALSE		F7	gut	IIA-IIB	MSS	T3	OW	29.4	F	no	2.1	96	yes 2	w	yes 1	w	yes 3	w	never	never	never	yes 1	w	yes 2	di	never	yes 1	w	neveryes 1	di	yes 2	di	never	yes 1	w	yes 2	di	yes 2	di	never	yes 1 ogni 2	w	yes 1	w	never	never	yes 1	di	never	CGAGGCTG-GTAAGGAG						
+F9-T0	run3	F9	T0	FALSE		F9	gut	I-II	ND	T1	NW	24.2	M	ex	2.9	95	yes 1	w	yes 2-3	w	yes 1	w	yes 1	w	yes 1	w	yes 2	w	raramente	yes 2	di	neveryes 2	w	yes 2	di	yes 2	w	yes 2	w	never	yes 3	w	yes 3	w	yes 2	di	yes 1 ogni 2	w	mai molto raramente	yes 1	di	never	never	yes 1	di	yes 1	di	AAGAGGCA-GTAAGGAG		
