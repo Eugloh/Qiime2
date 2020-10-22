@@ -31,7 +31,7 @@ MetaNames=${DIR}"/files/metada/Metadata"
 OUT=${DIR}"/output"
 LOG=${DIR}"/log"
 OTU_database=${DIR}"/database/greengenes"
-threads=4
+threads=8
 pathOUT=${DIR}"/pathabun_core_metrics_out"
 picrustOUT=${DIR}"/q2-picrust2_output"
 
@@ -44,13 +44,28 @@ rcutadap=($reversecut)
 
 
 #########################################   BEGINNING   #########################################
-#########################################       1       #########################################
+#########################################       0       #########################################
 print_centered "0 - setting up of the working environment..."
 
+if [ ! -d ${OUT} ]; then
+  mkdir ${OUT}
+fi
+if [ ! -d ${OTU_database} ]; then
+  echo "There is no database for the analysis to go through"
+fi
+if [ ! -d ${LOG} ]; then
+  mkdir ${LOG}
+fi
 
+print_centered " Everything is well set ! "
+print_centered "."
+print_centered "."
+print_centered "."
 
+#########################################       1       #########################################
 
 print_centered "1 - qiime tools import"
+
 << ////
 Usage:
 qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path /data/icb/16sRNA/work/CRC_obese_microbiome_run1_ok/qime2try/manifest_CRC_OB.txt --output-path paired-end-demux.qza --input-format PairedEndFastqManifestPhred33V2
@@ -132,8 +147,9 @@ Good to know :
      ${OUT}/okden-seqs-dada2.qza will be SampleData[DADA2Stats]
      ${OUT}/oktable-dada2.qza will be FeatureTable[Frequency]
 ////
+
 for el in 1 2 3 4; do
-if [ ! -e ${OUT}/${el}/oktable-dada2${el}.qza ]; then
+if [ ! -e ${OUT}/${el}/oktable-dada2_${el}.qza ]; then
     begin=$SECONDS ;
 exe qiime dada2 denoise-paired \
      --i-demultiplexed-seqs ${OUT}/${el}/paired-end-demux${el}_trim.qza \

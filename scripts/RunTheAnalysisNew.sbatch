@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 #SBATCH -J "runall-MethylomeRun"
 #SBATCH -A "runall-MethylomeRun"
-#SBATCH -c 16				   ### number of files to treat 
+#SBATCH -c 32				   ### number of files to treat 
 #SBATCH --mem=80G 				   ### blastn purpose
 #SBATCH --mail-user="lohmanne@students.iarc.fr"
 #SBATCH --mail-type=ALL
