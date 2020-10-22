@@ -16,4 +16,4 @@ date
 source activate qiime2-2019.10
 
 
-/home/lohmanne/Qiime2/scripts/RuntheanalysisNew.sh
+/home/lohmanne/Qiime2/scripts/Runtheanalysis-dev.sh

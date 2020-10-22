@@ -30,6 +30,7 @@ Manifest=${DIR}"/files/manifest/Manifest"
 MetaNames=${DIR}"/files/metada/Metadata"
 OUT=${DIR}"/output"
 LOG=${DIR}"/log"
+MERGED=${OUT}"/merged"
 OTU_database=${DIR}"/database/greengenes"
 threads=8
 pathOUT=${DIR}"/pathabun_core_metrics_out"
@@ -96,7 +97,7 @@ if [ ! -e ${OUT}/${el}/paired-end-demux${el}.qza ]; then
 
      echo ${el} " DONE"
 else echo ${el} " ALREADY DONE"
-fi &
+fi 
 done
 wait
 date
@@ -123,7 +124,7 @@ if [ ! -e ${OUT}/${el}/paired-end-demux${el}_trim.qza ]; then
         --o-trimmed-sequences ${OUT}/${el}/paired-end-demux${el}_trim.qza ;
      echo ${el} " DONE"
 else echo ${el} " ALREADY DONE"
-fi &
+fi 
 done
 wait
 date
@@ -140,20 +141,11 @@ Utility:
   denoise-paired  Denoise and dereplicate paired-end sequences
 Inputs:
   --i-demultiplexed-seqs ARTIFACT SampleData[PairedEndSequencesWithQuality]
-                         The paired-end demultiplexed sequences to be
-                         denoised.
 
 Outputs: 
 --o-representative-sequences ARTIFACT FeatureData[Sequence]
-                         The resulting feature sequences. Each feature in the
-                         feature table will be represented by exactly one
-                         sequence, and these sequences will be the joined
-                         paired-end sequences         
-
 --o-denoising-stats ARTIFACT SampleData[DADA2Stats]
-
 --o-table ARTIFACT FeatureTable[Frequency]
-                         The resulting feature table.
 
 Good to know : 
      ${OUT}/rep-seqs-dada2.qza will be FeatureData[Sequence]
@@ -177,7 +169,7 @@ exe qiime dada2 denoise-paired \
      --o-table ${OUT}/${el}/table-dada2_${el}.qza --verbose  > ${LOG}/all-dada2_${el}.log ;
      echo ${el} " DONE"
 else echo ${el} " ALREADY DONE"
-fi &
+fi 
 done
 wait
 date
@@ -185,8 +177,8 @@ date
 #########################################      3.5      #########################################
 print_centered "3.5 - qiime merge"
 
-if [ ! -d ${OUT}/merged ];then
-  mkdir ${OUT}/merged
+if [ ! -d ${MERGED} ];then
+  mkdir ${MERGED}
 fi ;
 
 exe qiime feature-table merge \
@@ -194,7 +186,7 @@ exe qiime feature-table merge \
   --i-tables ${OUT}/2/table-dada2_2.qza \
   --i-tables ${OUT}/3/table-dada2_3.qza \
   --i-tables ${OUT}/4/table-dada2_4.qza \
-  --o-merged-table ${OUT}/merged/table-dada2_merged.qza ;
+  --o-merged-table ${MERGED}/table-dada2_merged.qza ;
 
 
 exe qiime feature-table merge-seqs \
@@ -202,62 +194,62 @@ exe qiime feature-table merge-seqs \
   --i-data ${OUT}/2/rep-seqs-dada2_2.qza \
   --i-data ${OUT}/3/rep-seqs-dada2_3.qza \
   --i-data ${OUT}/4/rep-seqs-dada2_4.qza \
-  --o-merged-data ${OUT}/merged/run-rep-seqs_merged.qza ;
+  --o-merged-data ${MERGED}/run-rep-seqs_merged.qza ;
 
 date
 
-# # #########################################       4       #########################################
-# print_centered "4 - qiime feature-table filter-samples"
+# #########################################       4       #########################################
+print_centered "4 - qiime feature-table filter-samples"
 
-# << ////
-# Usage:
-# qiime feature-table filter-samples --i-table table-dada2.qza --m-metadata-file MetadataRun2_OB_F.txt --o-filtered-table Run2_OB_F-table-dada2.qza
-# Utility: 
-#   feature-table       Plugin for working with sample by feature tables.
-#   filter-samples      Filter samples from table
-# Inputs:
-#   --i-table ARTIFACT FeatureTable[Frequency¹ | RelativeFrequency² |
-#     PresenceAbsence³ | Composition⁴]
-#                        The feature table from which samples should be
-#                        filtered.
-# Output:
-#   --o-filtered-table ARTIFACT FeatureTable[Frequency¹ | RelativeFrequency²
-#     | PresenceAbsence³ | Composition⁴]
-#                        The resulting feature table filtered by sample.
+<< ////
+Usage:
+qiime feature-table filter-samples --i-table table-dada2.qza --m-metadata-file MetadataRun2_OB_F.txt --o-filtered-table Run2_OB_F-table-dada2.qza
+Utility: 
+  feature-table       Plugin for working with sample by feature tables.
+  filter-samples      Filter samples from table
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency¹ | RelativeFrequency² |
+    PresenceAbsence³ | Composition⁴]
+                       The feature table from which samples should be
+                       filtered.
+Output:
+  --o-filtered-table ARTIFACT FeatureTable[Frequency¹ | RelativeFrequency²
+    | PresenceAbsence³ | Composition⁴]
+                       The resulting feature table filtered by sample.
 
-# ////
-# for el in 1 2 3 4; do
-# if [ ! -e ${OUT}/${el}/table-dada2_run${el}.qza ]; then
-#      qiime feature-table filter-samples \
-#      --i-table ${OUT}/${el}/table-dada2_${el}.qza \
-#      --m-metadata-file ${MetaNames}${el}".txt" \
-#      --o-filtered-table ${OUT}/${el}/table-dada2_run${el}.qza
-#      echo "DONE"
-# else echo "ALREADY DONE"
-# fi &
-# done
-# wait
+////
+for el in F FOB S SOB; do
+if [ ! -e ${OUT}/${el}/table-dada2_${el}.qza ]; then
+    exe qiime feature-table filter-samples \
+     --i-table ${MERGED}/run-rep-seqs_merged.qza \
+     --m-metadata-file ${MetaNames}${el}".csv" \
+     --o-filtered-table ${MERGED}/${el}/run-rep-dada2_${el}.qza ;
+     echo ${el} " DONE"
+else echo ${el} " ALREADY DONE"
+fi 
+done
 
-# #########################################       5       #########################################
-# print_centered "5 - qiime feature-table filter-seqs"
+#########################################       5       #########################################
+print_centered "5 - qiime feature-table filter-seqs"
 
-# << ////
-# Usage:
-# qiime feature-table filter-seqs --i-data rep-seqs-dada2.qza --i-table Run2_OB_F-table-dada2.qza --o-filtered-data Run2_OB_F-rep-seqs-dada2.qza
-# Utility: 
-#   feature-table       Plugin for working with sample by feature tables.
-#   filter-seqs         Filter features from sequences
-# ////
+<< ////
+Usage:
+qiime feature-table filter-seqs --i-data rep-seqs-dada2.qza --i-table Run2_OB_F-table-dada2.qza --o-filtered-data Run2_OB_F-rep-seqs-dada2.qza
+Utility: 
+  feature-table       Plugin for working with sample by feature tables.
+  filter-seqs         Filter features from sequences
+////
 
-# if [ ! -e ${OUT}/Run2_OB_F-rep-seqs-dada2.qza ]; then
-# qiime feature-table filter-seqs \
-#      --i-data ${OUT}/rep-seqs-dada2.qza \
-#      --i-table ${OUT}/Run2_OB_F-table-dada2.qza \
-#      --o-filtered-data ${OUT}/Run2_OB_F-rep-seqs-dada2.qza
-#         echo "DONE"
-# else echo "ALREADY DONE"
-# fi
-
+for el in F FOB S SOB; do
+if [ ! -e ${MERGED}/${el}/data-dada2_${el}_filtered.qza ]; then
+exe qiime feature-table filter-seqs \
+     --i-data ${MERGED}/run-rep-seqs_merged.qza \
+     --i-table ${MERGED}/${el}/run-rep-dada2_${el}.qza \
+     --o-filtered-data ${MERGED}/${el}/data-dada2_${el}_filtered.qza ;
+        echo "DONE"
+else echo "ALREADY DONE"
+fi
+done
 
 # #########################################       6       #########################################
 # print_centered "6 - qiime tools import otus fasta"

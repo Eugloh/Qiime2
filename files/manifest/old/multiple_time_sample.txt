@@ -1,0 +1,171 @@
+Manifest3.txt:CS-positive	/home/lohmanne/Qiime2/data/3/CS_positive_Controlpositivesaliv_S90_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/CS_positive_Controlpositivesaliv_S90_L001_R2_001.fastq.gz
+Manifest4.txt:CS-positive	/home/lohmanne/Qiime2/data/4/CS_positive_positivecontrolsaliv_S93_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/CS_positive_positivecontrolsaliv_S93_L001_R2_001.fastq.gz
+toMoveBase.txt:CS-positive
+Manifest2.txt:FOB09-T6	/home/lohmanne/Qiime2/data/2/OB09FS-F_S21_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB09FS-F_S21_L001_R2_001.fastq.gz
+Manifest3.txt:FOB09-T6	/home/lohmanne/Qiime2/data/3/F_OB09FS_Obese-feces_S52_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB09FS_Obese-feces_S52_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB09-T6
+Manifest2.txt:FOB09-T12	/home/lohmanne/Qiime2/data/2/OB09FS2-F_S36_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB09FS2-F_S36_L001_R2_001.fastq.gz
+Manifest3.txt:FOB09-T12	/home/lohmanne/Qiime2/data/3/F_OB09FS2_Obese-feces_S55_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB09FS2_Obese-feces_S55_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB09-T12
+Manifest1.txt:FOB30-T0	/home/lohmanne/Qiime2/data/1/OB30IS-F_S8_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB30IS-F_S8_L001_R2_001.fastq.gz
+Manifest4.txt:FOB30-T0	/home/lohmanne/Qiime2/data/4/F_OB30_Obese-feces_S5_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB30_Obese-feces_S5_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB30-T0
+Manifest1.txt:SOB27-T0	/home/lohmanne/Qiime2/data/1/OB27-S_S32_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB27-S_S32_L001_R2_001.fastq.gz
+Manifest4.txt:SOB27-T0	/home/lohmanne/Qiime2/data/4/S_OB27_Obese-saliva_S41_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB27_Obese-saliva_S41_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB27-T0
+Manifest1.txt:SOB28-T0	/home/lohmanne/Qiime2/data/1/OB28-S_S33_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB28-S_S33_L001_R2_001.fastq.gz
+Manifest4.txt:SOB28-T0	/home/lohmanne/Qiime2/data/4/S_OB28_Obese-saliva_S42_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB28_Obese-saliva_S42_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB28-T0
+Manifest2.txt:FOB08-T6	/home/lohmanne/Qiime2/data/2/OB08FS-F_S20_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB08FS-F_S20_L001_R2_001.fastq.gz
+Manifest3.txt:FOB08-T6	/home/lohmanne/Qiime2/data/3/F_OB08FS_Obese-feces_S51_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB08FS_Obese-feces_S51_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB08-T6
+Manifest1.txt:SOB32-T6	/home/lohmanne/Qiime2/data/1/OB32FS-S_S51_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB32FS-S_S51_L001_R2_001.fastq.gz
+Manifest4.txt:SOB32-T6	/home/lohmanne/Qiime2/data/4/S_OB32FS_Obese-saliva_S61_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB32FS_Obese-saliva_S61_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB32-T6
+Manifest1.txt:SOB28-T6	/home/lohmanne/Qiime2/data/1/OB28FS-S_S47_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB28FS-S_S47_L001_R2_001.fastq.gz
+Manifest4.txt:SOB28-T6	/home/lohmanne/Qiime2/data/4/S_OB28FS_Obese-saliva_S57_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB28FS_Obese-saliva_S57_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB28-T6
+Manifest1.txt:SOB29-T0	/home/lohmanne/Qiime2/data/1/OB29-S_S34_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB29-S_S34_L001_R2_001.fastq.gz
+Manifest4.txt:SOB29-T0	/home/lohmanne/Qiime2/data/4/S_OB29_Obese-saliva_S43_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB29_Obese-saliva_S43_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB29-T0
+Manifest1.txt:SOB07-T12	/home/lohmanne/Qiime2/data/1/OB07FS2-S_S53_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB07FS2-S_S53_L001_R2_001.fastq.gz
+Manifest3.txt:SOB07-T12	/home/lohmanne/Qiime2/data/3/S_OB07FS2_Obese-saliva_S81_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/S_OB07FS2_Obese-saliva_S81_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB07-T12
+Manifest2.txt:FOB36-T0	/home/lohmanne/Qiime2/data/2/OB36IS-F_S35_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB36IS-F_S35_L001_R2_001.fastq.gz
+Manifest4.txt:FOB36-T0	/home/lohmanne/Qiime2/data/4/F_OB36_Obese-feces_S11_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB36_Obese-feces_S11_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB36-T0
+Manifest1.txt:SOB26-T0	/home/lohmanne/Qiime2/data/1/OB26-S_S31_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB26-S_S31_L001_R2_001.fastq.gz
+Manifest4.txt:SOB26-T0	/home/lohmanne/Qiime2/data/4/S_OB26_Obese-saliva_S40_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB26_Obese-saliva_S40_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB26-T0
+Manifest1.txt:FOB34-T0	/home/lohmanne/Qiime2/data/1/OB34IS-F_S12_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB34IS-F_S12_L001_R2_001.fastq.gz
+Manifest4.txt:FOB34-T0	/home/lohmanne/Qiime2/data/4/F_OB34_Obese-feces_S9_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB34_Obese-feces_S9_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB34-T0
+Manifest1.txt:FOB32-T6	/home/lohmanne/Qiime2/data/1/OB32FS-F_S22_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB32FS-F_S22_L001_R2_001.fastq.gz
+Manifest4.txt:FOB32-T6	/home/lohmanne/Qiime2/data/4/F_OB32FS_Obese-feces_S20_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB32FS_Obese-feces_S20_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB32-T6
+F_files.txt:CF-positive	/home/lohmanne/Qiime2/data/3/CF_positive_controlpositivefeces_S91_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/CF_positive_controlpositivefeces_S91_L001_R2_001.fastq.gz
+F_files.txt:CF-positive	/home/lohmanne/Qiime2/data/4/CF_positive_positivecontrolfeces_S94_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/CF_positive_positivecontrolfeces_S94_L001_R2_001.fastq.gz
+Manifest3.txt:CF-positive	/home/lohmanne/Qiime2/data/3/CF_positive_controlpositivefeces_S91_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/CF_positive_controlpositivefeces_S91_L001_R2_001.fastq.gz
+Manifest4.txt:CF-positive	/home/lohmanne/Qiime2/data/4/CF_positive_positivecontrolfeces_S94_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/CF_positive_positivecontrolfeces_S94_L001_R2_001.fastq.gz
+toMoveBase.txt:CF-positive
+Manifest1.txt:FOB33-T0	/home/lohmanne/Qiime2/data/1/OB33IS-F_S11_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB33IS-F_S11_L001_R2_001.fastq.gz
+Manifest4.txt:FOB33-T0	/home/lohmanne/Qiime2/data/4/F_OB33_Obese-feces_S8_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB33_Obese-feces_S8_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB33-T0
+Manifest1.txt:SOB31-T0	/home/lohmanne/Qiime2/data/1/OB31-S_S36_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB31-S_S36_L001_R2_001.fastq.gz
+Manifest4.txt:SOB31-T0	/home/lohmanne/Qiime2/data/4/S_OB31_Obese-saliva_S45_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB31_Obese-saliva_S45_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB31-T0
+Manifest1.txt:FOB25-T0	/home/lohmanne/Qiime2/data/1/OB25IS-F_S4_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB25IS-F_S4_L001_R2_001.fastq.gz
+Manifest4.txt:FOB25-T0	/home/lohmanne/Qiime2/data/4/F_OB25_Obese-feces_S1_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB25_Obese-feces_S1_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB25-T0
+Manifest1.txt:FOB28-T6	/home/lohmanne/Qiime2/data/1/OB28FS-F_S18_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB28FS-F_S18_L001_R2_001.fastq.gz
+Manifest4.txt:FOB28-T6	/home/lohmanne/Qiime2/data/4/F_OB28FS_Obese-feces_S16_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB28FS_Obese-feces_S16_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB28-T6
+Manifest1.txt:FOB31-T6	/home/lohmanne/Qiime2/data/1/OB31FS-F_S21_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB31FS-F_S21_L001_R2_001.fastq.gz
+Manifest4.txt:FOB31-T6	/home/lohmanne/Qiime2/data/4/F_OB31FS_Obese-feces_S19_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB31FS_Obese-feces_S19_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB31-T6
+Manifest2.txt:FOB10-T0	/home/lohmanne/Qiime2/data/2/OB10IS-F_S3_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB10IS-F_S3_L001_R2_001.fastq.gz
+Manifest3.txt:FOB10-T0	/home/lohmanne/Qiime2/data/3/F_OB10_Obese-feces_S50_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB10_Obese-feces_S50_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB10-T0
+Manifest2.txt:FOB10-T6	/home/lohmanne/Qiime2/data/2/OB10FS-F_S22_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB10FS-F_S22_L001_R2_001.fastq.gz
+Manifest3.txt:FOB10-T6	/home/lohmanne/Qiime2/data/3/F_OB10FS_Obese-saliva_S53_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB10FS_Obese-saliva_S53_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB10-T6
+Manifest1.txt:SOB35-T0	/home/lohmanne/Qiime2/data/1/OB35-S_S40_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB35-S_S40_L001_R2_001.fastq.gz
+Manifest4.txt:SOB35-T0	/home/lohmanne/Qiime2/data/4/S_OB35_Obese-saliva_S49_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB35_Obese-saliva_S49_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB35-T0
+Manifest1.txt:FOB32-T0	/home/lohmanne/Qiime2/data/1/OB32IS-F_S10_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB32IS-F_S10_L001_R2_001.fastq.gz
+Manifest4.txt:FOB32-T0	/home/lohmanne/Qiime2/data/4/F_OB32_Obese-feces_S7_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB32_Obese-feces_S7_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB32-T0
+Manifest1.txt:FOB26-T6	/home/lohmanne/Qiime2/data/1/OB26FS-F_S16_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB26FS-F_S16_L001_R2_001.fastq.gz
+Manifest4.txt:FOB26-T6	/home/lohmanne/Qiime2/data/4/F_OB26FS_Obese-feces_S14_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB26FS_Obese-feces_S14_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB26-T6
+Manifest1.txt:SOB31-T6	/home/lohmanne/Qiime2/data/1/OB31FS-S_S50_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB31FS-S_S50_L001_R2_001.fastq.gz
+Manifest4.txt:SOB31-T6	/home/lohmanne/Qiime2/data/4/S_OB31FS_Obese-saliva_S60_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB31FS_Obese-saliva_S60_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB31-T6
+Manifest1.txt:FOB27-T0	/home/lohmanne/Qiime2/data/1/OB27IS-F_S6_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB27IS-F_S6_L001_R2_001.fastq.gz
+Manifest4.txt:FOB27-T0	/home/lohmanne/Qiime2/data/4/F_OB27_Obese-feces_S3_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB27_Obese-feces_S3_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB27-T0
+Manifest1.txt:FOB31-T0	/home/lohmanne/Qiime2/data/1/OB31IS-F_S9_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB31IS-F_S9_L001_R2_001.fastq.gz
+Manifest4.txt:FOB31-T0	/home/lohmanne/Qiime2/data/4/F_OB31_Obese-feces_S6_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB31_Obese-feces_S6_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB31-T0
+Manifest1.txt:FOB29-T0	/home/lohmanne/Qiime2/data/1/OB29IS-F_S7_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB29IS-F_S7_L001_R2_001.fastq.gz
+Manifest4.txt:FOB29-T0	/home/lohmanne/Qiime2/data/4/F_OB29_Obese-feces_S4_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB29_Obese-feces_S4_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB29-T0
+Manifest2.txt:FOB10-T12	/home/lohmanne/Qiime2/data/2/OB10FS2-F_S37_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB10FS2-F_S37_L001_R2_001.fastq.gz
+Manifest3.txt:FOB10-T12	/home/lohmanne/Qiime2/data/3/F_OB10FS2_Obese-feces_S56_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB10FS2_Obese-feces_S56_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB10-T12
+Manifest1.txt:FOB30-T6	/home/lohmanne/Qiime2/data/1/OB30FS-F_S20_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB30FS-F_S20_L001_R2_001.fastq.gz
+Manifest4.txt:FOB30-T6	/home/lohmanne/Qiime2/data/4/F_OB30FS_Obese-feces_S18_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB30FS_Obese-feces_S18_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB30-T6
+Manifest1.txt:SOB25-T6	/home/lohmanne/Qiime2/data/1/OB25FS-S_S44_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB25FS-S_S44_L001_R2_001.fastq.gz
+Manifest4.txt:SOB25-T6	/home/lohmanne/Qiime2/data/4/S_OB25FS_Obese-saliva_S54_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB25FS_Obese-saliva_S54_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB25-T6
+Manifest1.txt:FOB35-T0	/home/lohmanne/Qiime2/data/1/OB35IS-F_S13_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB35IS-F_S13_L001_R2_001.fastq.gz
+Manifest4.txt:FOB35-T0	/home/lohmanne/Qiime2/data/4/F_OB35_Obese-feces_S10_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB35_Obese-feces_S10_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB35-T0
+Manifest1.txt:SOB25-T0	/home/lohmanne/Qiime2/data/1/OB25-S_S30_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB25-S_S30_L001_R2_001.fastq.gz
+Manifest4.txt:SOB25-T0	/home/lohmanne/Qiime2/data/4/S_OB25_Obese-saliva_S39_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB25_Obese-saliva_S39_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB25-T0
+F_files.txt:S0714-T6	/home/lohmanne/Qiime2/data/1/0714FS-S_S94_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/0714FS-S_S94_L001_R2_001.fastq.gz
+F_files.txt:S0714-T6	/home/lohmanne/Qiime2/data/4/S-0714FS_Twins-saliva_S92_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S-0714FS_Twins-saliva_S92_L001_R2_001.fastq.gz
+Manifest1.txt:S0714-T6	/home/lohmanne/Qiime2/data/1/0714FS-S_S94_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/0714FS-S_S94_L001_R2_001.fastq.gz
+Manifest4.txt:S0714-T6	/home/lohmanne/Qiime2/data/4/S-0714FS_Twins-saliva_S92_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S-0714FS_Twins-saliva_S92_L001_R2_001.fastq.gz
+toMoveBase.txt:S0714-T6
+Manifest1.txt:SOB30-T0	/home/lohmanne/Qiime2/data/1/OB30-S_S35_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB30-S_S35_L001_R2_001.fastq.gz
+Manifest4.txt:SOB30-T0	/home/lohmanne/Qiime2/data/4/S_OB30_Obese-saliva_S44_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB30_Obese-saliva_S44_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB30-T0
+Manifest1.txt:SOB33-T0	/home/lohmanne/Qiime2/data/1/OB33-S_S38_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB33-S_S38_L001_R2_001.fastq.gz
+Manifest4.txt:SOB33-T0	/home/lohmanne/Qiime2/data/4/S_OB33_Obese-saliva_S47_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB33_Obese-saliva_S47_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB33-T0
+F_files.txt:S0713-T6	/home/lohmanne/Qiime2/data/1/0713FS-S_S93_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/0713FS-S_S93_L001_R2_001.fastq.gz
+F_files.txt:S0713-T6	/home/lohmanne/Qiime2/data/4/S_0713FS_Twins-saliva_S91_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_0713FS_Twins-saliva_S91_L001_R2_001.fastq.gz
+Manifest1.txt:S0713-T6	/home/lohmanne/Qiime2/data/1/0713FS-S_S93_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/0713FS-S_S93_L001_R2_001.fastq.gz
+Manifest4.txt:S0713-T6	/home/lohmanne/Qiime2/data/4/S_0713FS_Twins-saliva_S91_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_0713FS_Twins-saliva_S91_L001_R2_001.fastq.gz
+toMoveBase.txt:S0713-T6
+Manifest1.txt:SOB29-T6	/home/lohmanne/Qiime2/data/1/OB29FS-S_S48_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB29FS-S_S48_L001_R2_001.fastq.gz
+Manifest4.txt:SOB29-T6	/home/lohmanne/Qiime2/data/4/S_OB29FS_Obese-saliva_S58_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB29FS_Obese-saliva_S58_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB29-T6
+Manifest1.txt:SOB34-T0	/home/lohmanne/Qiime2/data/1/OB34-S_S39_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB34-S_S39_L001_R2_001.fastq.gz
+Manifest4.txt:SOB34-T0	/home/lohmanne/Qiime2/data/4/S_OB34_Obese-saliva_S48_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB34_Obese-saliva_S48_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB34-T0
+Manifest1.txt:SOB30-T6	/home/lohmanne/Qiime2/data/1/OB30FS-S_S49_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB30FS-S_S49_L001_R2_001.fastq.gz
+Manifest4.txt:SOB30-T6	/home/lohmanne/Qiime2/data/4/S_OB30FS_Obese-saliva_S59_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB30FS_Obese-saliva_S59_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB30-T6
+Manifest1.txt:FOB29-T6	/home/lohmanne/Qiime2/data/1/OB29FS-F_S19_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB29FS-F_S19_L001_R2_001.fastq.gz
+Manifest4.txt:FOB29-T6	/home/lohmanne/Qiime2/data/4/F_OB29FS_Obese-feces_S17_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB29FS_Obese-feces_S17_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB29-T6
+Manifest1.txt:FOB26-T0	/home/lohmanne/Qiime2/data/1/OB26IS-F_S5_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB26IS-F_S5_L001_R2_001.fastq.gz
+Manifest4.txt:FOB26-T0	/home/lohmanne/Qiime2/data/4/F_OB26_Obese-feces_S2_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB26_Obese-feces_S2_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB26-T0
+Manifest1.txt:SOB26-T6	/home/lohmanne/Qiime2/data/1/OB26FS-S_S45_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB26FS-S_S45_L001_R2_001.fastq.gz
+Manifest4.txt:SOB26-T6	/home/lohmanne/Qiime2/data/4/S_OB26FS_Obese-saliva_S55_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB26FS_Obese-saliva_S55_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB26-T6
+Manifest1.txt:SOB27-T6	/home/lohmanne/Qiime2/data/1/OB27FS-S_S46_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB27FS-S_S46_L001_R2_001.fastq.gz
+Manifest4.txt:SOB27-T6	/home/lohmanne/Qiime2/data/4/S_OB27FS_Obese-saliva_S56_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB27FS_Obese-saliva_S56_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB27-T6
+Manifest1.txt:FOB27-T6	/home/lohmanne/Qiime2/data/1/OB27FS-F_S17_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB27FS-F_S17_L001_R2_001.fastq.gz
+Manifest4.txt:FOB27-T6	/home/lohmanne/Qiime2/data/4/F_OB27FS_Obese-feces_S15_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB27FS_Obese-feces_S15_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB27-T6
+Manifest2.txt:FOB03-T6	/home/lohmanne/Qiime2/data/2/OB03FS-F_S16_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB03FS-F_S16_L001_R2_001.fastq.gz
+Manifest4.txt:FOB03-T6	/home/lohmanne/Qiime2/data/4/F_OB03FS_Obese-feces_S13_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB03FS_Obese-feces_S13_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB03-T6
+Manifest2.txt:FOB03-T12	/home/lohmanne/Qiime2/data/2/OB03FS2-F_S32_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB03FS2-F_S32_L001_R2_001.fastq.gz
+Manifest4.txt:FOB03-T12	/home/lohmanne/Qiime2/data/4/F_OB03FS2_Obese-feces_S25_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB03FS2_Obese-feces_S25_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB03-T12
+Manifest1.txt:SOB32-T0	/home/lohmanne/Qiime2/data/1/OB32-S_S37_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB32-S_S37_L001_R2_001.fastq.gz
+Manifest4.txt:SOB32-T0	/home/lohmanne/Qiime2/data/4/S_OB32_Obese-saliva_S46_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB32_Obese-saliva_S46_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB32-T0
+Manifest1.txt:FOB07-T12	/home/lohmanne/Qiime2/data/1/OB07FS2-F_S25_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB07FS2-F_S25_L001_R2_001.fastq.gz
+Manifest3.txt:FOB07-T12	/home/lohmanne/Qiime2/data/3/F_OB07FS2_Obese-feces_S54_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB07FS2_Obese-feces_S54_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB07-T12
+Manifest2.txt:FOB01-T6	/home/lohmanne/Qiime2/data/2/OB01FS-F_S14_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/2/OB01FS-F_S14_L001_R2_001.fastq.gz
+Manifest4.txt:FOB01-T6	/home/lohmanne/Qiime2/data/4/F_OB01FS_Obese-feces_S12_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB01FS_Obese-feces_S12_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB01-T6
+Manifest1.txt:SOB33-T6	/home/lohmanne/Qiime2/data/1/OB33FS-S_S52_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB33FS-S_S52_L001_R2_001.fastq.gz
+Manifest4.txt:SOB33-T6	/home/lohmanne/Qiime2/data/4/S_OB33FS_Obese-saliva_S62_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/S_OB33FS_Obese-saliva_S62_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB33-T6
+Manifest1.txt:FOB33-T6	/home/lohmanne/Qiime2/data/1/OB33FS-F_S23_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB33FS-F_S23_L001_R2_001.fastq.gz
+Manifest4.txt:FOB33-T6	/home/lohmanne/Qiime2/data/4/F_OB33FS_Obese-feces_S21_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/4/F_OB33FS_Obese-feces_S21_L001_R2_001.fastq.gz
+toMoveBase.txt:FOB33-T6
+Manifest1.txt:SOB07-T6	/home/lohmanne/Qiime2/data/1/OB07FS-S_S41_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/1/OB07FS-S_S41_L001_R2_001.fastq.gz
+Manifest3.txt:SOB07-T6	/home/lohmanne/Qiime2/data/3/S_OB07FS_Obese-saliva_S73_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/S_OB07FS_Obese-saliva_S73_L001_R2_001.fastq.gz
+toMoveBase.txt:SOB07-T6
