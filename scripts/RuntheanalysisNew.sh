@@ -27,7 +27,7 @@ start=$SECONDS
 
 DIR=$(pwd)
 Manifest=${DIR}"/files/manifest/Manifest"
-MetaNames=${DIR}"/files/metada/Metadata"
+MetaNames=${DIR}"/files/metadata/Metadata"
 OUT=${DIR}"/output"
 LOG=${DIR}"/log"
 OTU_database=${DIR}"/database/greengenes"

@@ -1,5 +1,5 @@
 #SampleID	Run	Sample	TimePoint	Gender	TwinType	Smoke	BMI	BarcodeSequence
-#q2:types	categorical	categorical	categorical	categorical	categorical	categorical	categorical	categorical
+#q2:types	categorical	categorical	categorical	categorical	categorical	categorical	numeric	categorical
 F0203-T0	run1	F0203	T0	F	OW	NO	31.9	CTCTCTAC-CTATTAAG
 F0203-T6	run1	F0203	T6	F	OW	NO	28.8	AGGCAGAA-GAGCCTTA
 F0204-T0	run1	F0204	T0	F	NW	NO	26.4	CGAGGCTG-CTATTAAG

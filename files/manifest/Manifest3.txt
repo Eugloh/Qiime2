@@ -48,9 +48,6 @@ F23-T0	/home/lohmanne/Qiime2/data/3/F23_CRC-feces_S46_L001_R1_001.fastq.gz	/home
 F24-T0	/home/lohmanne/Qiime2/data/3/F24_CRC-feces_S47_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F24_CRC-feces_S47_L001_R2_001.fastq.gz
 F25-T0	/home/lohmanne/Qiime2/data/3/F25_CRC-feces_S48_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F25_CRC-feces_S48_L001_R2_001.fastq.gz
 F26-T0	/home/lohmanne/Qiime2/data/3/F26_CRC-feces_S49_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F26_CRC-feces_S49_L001_R2_001.fastq.gz
-FOB10-T0	/home/lohmanne/Qiime2/data/3/F_OB10_Obese-feces_S50_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB10_Obese-feces_S50_L001_R2_001.fastq.gz
-FOB08-T6	/home/lohmanne/Qiime2/data/3/F_OB08FS_Obese-feces_S51_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB08FS_Obese-feces_S51_L001_R2_001.fastq.gz
-FOB10-T6	/home/lohmanne/Qiime2/data/3/F_OB10FS_Obese-saliva_S53_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/F_OB10FS_Obese-saliva_S53_L001_R2_001.fastq.gz
 SOB02-T0	/home/lohmanne/Qiime2/data/3/S_OB02_Obese-saliva_S61_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/S_OB02_Obese-saliva_S61_L001_R2_001.fastq.gz
 SOB04-T0	/home/lohmanne/Qiime2/data/3/S_OB04_Obese-saliva_S62_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/S_OB04_Obese-saliva_S62_L001_R2_001.fastq.gz
 SOB05-T0	/home/lohmanne/Qiime2/data/3/S_OB05_Obese-saliva_S63_L001_R1_001.fastq.gz	/home/lohmanne/Qiime2/data/3/S_OB05_Obese-saliva_S63_L001_R2_001.fastq.gz
