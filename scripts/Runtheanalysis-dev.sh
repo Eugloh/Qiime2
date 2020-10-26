@@ -57,6 +57,10 @@ print_centered "0 - setting up of the working environment..."
 
 if [ ! -d ${OUT} ]; then
   mkdir ${OUT}
+  mkdir ${OUT}/1
+  mkdir ${OUT}/2
+  mkdir ${OUT}/3
+  mkdir ${OUT}/4
 fi
 if [ ! -d ${OTU_database} ]; then
   echo "There is no database for the analysis to go through"
@@ -399,7 +403,7 @@ fi
 done
 date
 # # # ########################################               #########################################
- print_centered " 13 - qiime feature-table relative-frequency"
+print_centered " 13 - qiime feature-table relative-frequency"
 << ////
 Usage:
 qiime feature-table relative-frequency --i-table FOB_freq-2.qza --o-relative-frequency-table relative-freq-2.qza
@@ -613,7 +617,7 @@ fi
 done
 date
 # #########################################               #########################################
- print_centered "20 - qiime diversity pcoa"
+print_centered "20 - qiime diversity pcoa"
 << ////
 Usage:
 qiime diversity pcoa --i-distance-matrix dada2.braycurtis.notNorm.diversity.qza --o-pcoa dada2.braycurtis.notNorm.diversity.pcoa.qza
