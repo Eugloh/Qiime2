@@ -182,6 +182,8 @@ if [ ! -d ${MERGED} ];then
   mkdir ${MERGED}/SOB
   mkdir ${MERGED}/S_all
   mkdir ${MERGED}/F_all
+  mkdir ${MERGED}/all
+
 fi ;
 
 if [ ! -e ${MERGED}/table-dada2_merged.qza ]; then
@@ -227,7 +229,7 @@ Output:
                        The resulting feature table filtered by sample.
 
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/run-rep-dada2_${el}.qza ]; then
     exe qiime feature-table filter-samples \
      --i-table ${MERGED}/table-dada2_merged.qza \
@@ -249,7 +251,7 @@ Utility:
   filter-seqs         Filter features from sequences
 ////
 
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/data-dada2_${el}_filtered.qza ]; then
 exe qiime feature-table filter-seqs \
      --i-data ${MERGED}/run-rep-seqs_merged.qza \
@@ -369,7 +371,7 @@ Utility:
 To Do:
 Notice: I change newCpositive-rep-seqs-dada2.qza to Run2_OB_F-rep-seqs-dada2.qza for tests
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/newtaxonomy.sklearn_${el}.qza  ]; then
      begin=$SECONDS
      exe qiime feature-classifier classify-sklearn \
@@ -394,7 +396,7 @@ Utility:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/freq_${el}.qza ]; then
      begin=$SECONDS
      exe qiime taxa collapse \
@@ -427,7 +429,7 @@ Outputs:
 To Do:
 ////
 
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e  ${MERGED}/${el}/relative_freq_${el}.qza ]; then
      begin=$SECONDS
      exe qiime feature-table relative-frequency \
@@ -455,7 +457,7 @@ Output:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e  ${MERGED}/${el}/aligned-rep-seqs_${el}.qza ]; then
      begin=$SECONDS
      qiime alignment mafft \
@@ -480,7 +482,7 @@ Utility:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/masked-aligned-rep-seqs_${el}.qza ]; then
      begin=$SECONDS
      exe qiime alignment mask \
@@ -507,7 +509,7 @@ Inputs:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/unrooted-tree_${el}.qza ]; then
      begin=$SECONDS
      exe qiime phylogeny fasttree \
@@ -536,7 +538,7 @@ Outputs:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/rooted-tree_${el}.qza  ]; then
      begin=$SECONDS
      exe qiime phylogeny midpoint-root \
@@ -567,7 +569,7 @@ Outputs:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 if [ ! -e ${MERGED}/${el}/rarefaction-curve_${el}.qzv ]; then
      begin=$SECONDS
      qiime diversity alpha-rarefaction \
@@ -608,7 +610,7 @@ Outputs:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/dada2_braycurtis_notNorm_diversity_${el}.qza ]; then
      begin=$SECONDS
@@ -633,7 +635,7 @@ Utility:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/dada2_braycurtis_notNorm_diversity_pcoa_${el}.qza ]; then
      begin=$SECONDS
@@ -667,7 +669,7 @@ Inputs:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -d ${MERGED}/${el}/diversity ]; then
      begin=$SECONDS
@@ -699,7 +701,7 @@ Inputs:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/hierarchy_${el}.qza  ]; then
      begin=$SECONDS
@@ -764,7 +766,7 @@ Outputs:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/balances_${el}.qza ]; then
      begin=$SECONDS
@@ -828,7 +830,7 @@ if [ ! -e ${MERGED}/table-dada2_merged.qzv  ]; then
     exe qiime feature-table summarize \
       --i-table ${MERGED}/table-dada2_merged.qza \
       --o-visualization ${MERGED}/table-dada2_merged.qzv \
-      --m-sample-metadata-file ${MetaNames}"_all.csv"
+      --m-sample-metadata-file ${MetaNames}"all.csv"
     
     echo "DONE"
 else echo "ALREADY DONE"
@@ -857,7 +859,7 @@ Utility:
 To Do: need to install qiime2 https://forum.qiime2.org/t/qiime2-modulenotfounderror-with-picrust2-plugin-installation/8985/2 
 ////
 
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -d ${MERGED}/${el}/picrust2 ]; then
      begin=$SECONDS
@@ -893,7 +895,7 @@ exout: pathabun_core_metrics_out
 To Do:
 Supposition : ${OUT}/pathway_abundance.qza must have been created by the picrust2 command. 
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -d ${MERGED}/${el}/core_metrics ]; then
     begin=$SECONDS
@@ -918,7 +920,7 @@ Utility:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -d ${MERGED}/${el}/export_picrust2 ]; then
     begin=$SECONDS
@@ -941,7 +943,7 @@ Utility:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/export_picrust2/feature-table_biom_${el}.tsv ]; then
      begin=$SECONDS
@@ -963,7 +965,7 @@ Utility: Convert frequencies to relative frequencies by dividing each frequency 
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/picrust2/pathway_rel-freq_${el}.qza ]; then
      begin=$SECONDS
@@ -986,7 +988,7 @@ Utility:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/path_rel-freq_picrust2    ]; then
      begin=$SECONDS
@@ -1009,7 +1011,7 @@ Utility:
 
 To Do:
 ////
-for el in F FOB S SOB F_all S_all; do
+for el in F FOB S SOB F_all S_all all; do
 
 if [ ! -e ${MERGED}/${el}/path_rel-freq_picrust2/pathway_rel-freq_${el}_tsv.txt  ]; then
      begin=$SECONDS
