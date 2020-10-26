@@ -1,12 +1,12 @@
 # Script folder
 
-.
-├── apparence.sh
-├── PATHWAY.R
-├── README.md # current file 
-├── Runtheanalysis-dev.sh
-├── RunTheAnalysisNew.sbatch # github import
-└── RuntheanalysisNew.sh # will be removed
+    .
+    ├── apparence.sh
+    ├── PATHWAY.R
+    ├── README.md # current file 
+    ├── Runtheanalysis-dev.sh
+    ├── RunTheAnalysisNew.sbatch # github import
+    └── RuntheanalysisNew.sh # will be removed
 
 ## Details on scripts
 
