@@ -33,8 +33,6 @@ LOG=${DIR}"/log"
 MERGED=${OUT}"/merged"
 OTU_database=${DIR}"/database/greengenes"
 threads=8
-pathOUT=${DIR}"/pathabun_core_metrics_out"
-picrustOUT=${DIR}"/q2-picrust2_output"
 
 # we have always used the same primer to amplify the V3-V4 sequences of the 16sRNA gene
 forwardcut="TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG "
@@ -43,23 +41,18 @@ reversecut="GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG GTCTCGTGGGCTCGGAGATGTGTATAAGAGACA
 fcutadap=($forwardcut)
 rcutadap=($reversecut)
 
-echo 'Here is an overview of the general steps of the QIIME2 pipeline:
+echo -e 'QIIME2 pipeline steps :
 
-Step1: Importing and demultiplex data, summarize the results, and examing quality of the reads.
-
-Step 2: Quality controlling sequences and building Feature Table and Feature Data
-
-Step 3: Summarizing Feature Table and Feature Data
-
-Step 4: Assigning Taxonomy
-
-Step 5: Generating a phylogenetic tree
-
-Step 6: Analyzing Alpha and Beta diversities'
+Step1 :\t Importing and demultiplex data, summarize the results, and examing quality of the reads.\n
+Step2 :\t Quality controlling sequences and building Feature Table and Feature Data.\n
+Step3 :\t Summarizing Feature Table and Feature Data.\n
+Step4 :\t Assigning Taxonomy.\n
+Step5 :\t Generating a phylogenetic tree.\n
+Step6 :\t Analyzing Alpha and Beta diversities.\n'
 
 
 #########################################   BEGINNING   #########################################
-#########################################       0       #########################################
+#########################################               #########################################
 print_centered "0 - setting up of the working environment..."
 
 if [ ! -d ${OUT} ]; then
@@ -72,10 +65,10 @@ if [ ! -d ${LOG} ]; then
   mkdir ${LOG}
 fi 
 
-print_centered " Everything is well set ! . \n . \n . \n"
+print_centered "Everything is well set !"
 
 
-#########################################       1       #########################################
+#########################################               #########################################
 
 print_centered "1 - qiime tools import"
 
@@ -95,13 +88,13 @@ if [ ! -e ${OUT}/${el}/paired-end-demux${el}.qza ]; then
      --input-path ${Manifest}${el}".txt" \
      --output-path ${OUT}/${el}/paired-end-demux${el}.qza --input-format PairedEndFastqManifestPhred33V2 ;
 
-     echo ${el} " DONE"
-else echo ${el} " ALREADY DONE"
+     echo -e ${el} "\trun DONE"
+else echo -e ${el} "\trun ALREADY DONE"
 fi 
 done
 wait
 date
-########################################       2       #########################################
+########################################               #########################################
 print_centered "2 - qiime cutadapt trim-paired on demultiplexed data"
 
 << ////
@@ -122,13 +115,13 @@ if [ ! -e ${OUT}/${el}/paired-end-demux${el}_trim.qza ]; then
         --p-front-f ${fcutadap[${el}]} \
         --p-front-r ${rcutadap[${el}]} \
         --o-trimmed-sequences ${OUT}/${el}/paired-end-demux${el}_trim.qza ;
-     echo ${el} " DONE"
-else echo ${el} " ALREADY DONE"
+     echo -e ${el} "\trun DONE"
+else echo -e ${el} "\trun ALREADY DONE"
 fi 
 done
 wait
 date
-#########################################       3       #########################################
+#########################################               #########################################
 print_centered "3 - qiime dada2 denoise-paired"
 
 << ////
@@ -166,16 +159,16 @@ exe qiime dada2 denoise-paired \
      --p-n-threads ${threads} \
      --o-representative-sequences ${OUT}/${el}/rep-seqs-dada2_${el}.qza \
      --o-denoising-stats ${OUT}/${el}/den-seqs-dada2_${el}.qza \
-     --o-table ${OUT}/${el}/table-dada2_${el}.qza --verbose  > ${LOG}/all-dada2_${el}.log ;
-     echo ${el} " DONE"
-else echo ${el} " ALREADY DONE"
+     --o-table ${OUT}/${el}/table-dada2_${el}.qza --verbose  > ${LOG}/all-dada2_${el}.log 2>&1 ;
+     echo -e ${el} "\trun DONE"
+else echo -e ${el} "\trun ALREADY DONE"
 fi 
 done
 wait
 date
 ###############################||| I need to merge my tables |||#################################
-#########################################      3.5      #########################################
-print_centered "3.5 - qiime merge"
+#########################################               #########################################
+print_centered "4 - qiime merge"
 
 if [ ! -d ${MERGED} ];then
   mkdir ${MERGED}
@@ -188,7 +181,9 @@ exe qiime feature-table merge \
   --i-tables ${OUT}/3/table-dada2_3.qza \
   --i-tables ${OUT}/4/table-dada2_4.qza \
   --o-merged-table ${MERGED}/table-dada2_merged.qza ;
-fi
+  echo "DONE"
+else echo "ALREADY DONE"
+fi 
 
 if [ ! -e ${MERGED}/run-rep-seqs_merged.qza ]; then
 exe qiime feature-table merge-seqs \
@@ -197,11 +192,13 @@ exe qiime feature-table merge-seqs \
   --i-data ${OUT}/3/rep-seqs-dada2_3.qza \
   --i-data ${OUT}/4/rep-seqs-dada2_4.qza \
   --o-merged-data ${MERGED}/run-rep-seqs_merged.qza ;
-fi
+  echo "DONE"
+else echo "ALREADY DONE"
+fi 
 date
 
-# #########################################       4       #########################################
-print_centered "4 - qiime feature-table filter-samples"
+# #########################################                #########################################
+print_centered "5 - qiime feature-table filter-samples"
 
 << ////
 Usage:
@@ -226,13 +223,13 @@ if [ ! -e ${MERGED}/${el}/run-rep-dada2_${el}.qza ]; then
      --i-table ${MERGED}/table-dada2_merged.qza \
      --m-metadata-file ${MetaNames}${el}".csv" \
      --o-filtered-table ${MERGED}/${el}/run-rep-dada2_${el}.qza ;
-     echo ${el} " DONE"
-else echo ${el} " ALREADY DONE"
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
 fi 
 done
-
-#########################################       5       #########################################
-print_centered "5 - qiime feature-table filter-seqs"
+date
+#########################################                #########################################
+print_centered "6 - qiime feature-table filter-seqs"
 
 << ////
 Usage:
@@ -248,13 +245,13 @@ exe qiime feature-table filter-seqs \
      --i-data ${MERGED}/run-rep-seqs_merged.qza \
      --i-table ${MERGED}/${el}/run-rep-dada2_${el}.qza \
      --o-filtered-data ${MERGED}/${el}/data-dada2_${el}_filtered.qza ;
-        echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
-
-#########################################       6       #########################################
-print_centered "6 - qiime tools import otus fasta"
+date
+#########################################               #########################################
+print_centered "7 - qiime tools import otus fasta"
 
 << ////
 Usage:
@@ -272,12 +269,12 @@ exe qiime tools import \
      --input-path ${OTU_database}/99_otus.fasta \
      --output-path ${OUT}/99_otus.qza \
      --type 'FeatureData[Sequence]'
-        echo "DONE"
+      echo "DONE"
 else echo "ALREADY DONE"
 fi
-
-#########################################       7       #########################################
-print_centered "7 - qiime tools import taxonomy otus"
+date
+#########################################               #########################################
+print_centered "8 - qiime tools import taxonomy otus"
 
 << ////
 Usage:
@@ -297,9 +294,9 @@ exe qiime tools import \
         echo "DONE"
 else echo "ALREADY DONE"
 fi
-
+date
 #########################################                #########################################
-print_centered "8 - qiime feature-classifier extract-reads "
+print_centered "9 - qiime feature-classifier extract-reads "
 << ////
 Usage:
 qiime feature-classifier extract-reads --i-sequences 99_otus.qza --p-f-primer CCTACGGGNGGCWGCAG --p-r-primer GACTACHVGGGTATCTAATCC --o-reads 99_otus-ref.seqs.qza
@@ -324,10 +321,10 @@ if [ ! -e ${OUT}/99_otus-ref.seqs.qza ]; then
      echo "DONE"
 else echo "ALREADY DONE"
 fi
-
+date
 
 #########################################               #########################################
-print_centered "9 - qiime feature-classifier fit-classifier-naive-bayes"
+print_centered "10 - qiime feature-classifier fit-classifier-naive-bayes"
 << ////
 Usage:
 qiime feature-classifier fit-classifier-naive-bayes --i-reference-reads 99_otus-ref.seqs.qza --i-reference-taxonomy 99_otu_taxonomy.qza --o-classifier classifier.trained.qza
@@ -349,9 +346,9 @@ if [ ! -e ${OUT}/classifier.trained.qza ]; then
      echo "DONE"
 else echo "ALREADY DONE"
 fi
-
+date
 #########################################               #########################################
-print_centered "10 - qiime feature-classifier classify-sklearn"
+print_centered "11 - qiime feature-classifier classify-sklearn"
 << ////
 Usage:
 qiime feature-classifier classify-sklearn --i-classifier classifier.trained.qza --i-reads newCpositive-rep-seqs-dada2.qza --o-classification newtaxonomy.sklearn.qza 
@@ -369,13 +366,13 @@ if [ ! -e ${MERGED}/${el}/newtaxonomy.sklearn_${el}.qza  ]; then
      --i-classifier ${OUT}/classifier.trained.qza \
      --i-reads ${MERGED}/${el}/data-dada2_${el}_filtered.qza \
      --o-classification ${MERGED}/${el}/newtaxonomy.sklearn_${el}.qza 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
-
+date
 # # #########################################               #########################################
-print_centered "11  - qiime taxa collapse "
+print_centered "12  - qiime taxa collapse "
 << ////
 Usage:
 qiime taxa collapse --i-table table-dada2.qza --i-taxonomy taxonomy.sklearn.qza --p-level 2 --o-collapsed-table FOB_freq-2.qza
@@ -396,12 +393,13 @@ if [ ! -e ${MERGED}/${el}/freq_${el}.qza ]; then
      --p-level 2 \
      --o-collapsed-table ${MERGED}/${el}/freq_${el}.qza
 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # # # ########################################               #########################################
- print_centered " 12 - qiime feature-table relative-frequency"
+ print_centered " 13 - qiime feature-table relative-frequency"
 << ////
 Usage:
 qiime feature-table relative-frequency --i-table FOB_freq-2.qza --o-relative-frequency-table relative-freq-2.qza
@@ -425,14 +423,14 @@ if [ ! -e  ${MERGED}/${el}/relative_freq_${el}.qza ]; then
      exe qiime feature-table relative-frequency \
      --i-table ${MERGED}/${el}/freq_${el}.qza \
      --o-relative-frequency-table ${MERGED}/${el}/relative_freq_${el}.qza \
-     --verbose > ${LOG}/qiime-feature-table-relative-frequency_${el}.log
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     --verbose > ${LOG}/qiime-feature-table-relative-frequency_${el}.log 2>&1
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
-
+date
 # #########################################            #########################################
-print_centered "13 - qiime alignment mafft "
+print_centered "14 - qiime alignment mafft "
 << ////
 Usage:
 qiime alignment mafft --i-sequences rep-seqs-dada2.qza --o-alignment aligned-rep-seqs.qza
@@ -454,12 +452,13 @@ if [ ! -e  ${MERGED}/${el}/aligned-rep-seqs_${el}.qza ]; then
      --i-sequences ${MERGED}/${el}/data-dada2_${el}_filtered.qza \
      --o-alignment  ${MERGED}/${el}/aligned-rep-seqs_${el}.qza
 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # #########################################               #########################################
-print_centered "14 - qiime alignment mask"
+print_centered "15 - qiime alignment mask"
 << ////
 Usage:
 qiime alignment mask --i-alignment aligned-rep-seqs.qza --o-masked-alignment masked-aligned-rep-seqs.qza
@@ -478,12 +477,13 @@ if [ ! -e ${MERGED}/${el}/masked-aligned-rep-seqs_${el}.qza ]; then
      --i-alignment ${MERGED}/${el}/aligned-rep-seqs_${el}.qza \
      --o-masked-alignment ${MERGED}/${el}/masked-aligned-rep-seqs_${el}.qza
 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # #########################################               #########################################
-print_centered "15 - qiime phylogeny fasttree "
+print_centered "16 - qiime phylogeny fasttree "
 << ////
 Usage:
 qiime phylogeny fasttree --i-alignment masked-aligned-rep-seqs.qza --o-tree unrooted-tree.qza
@@ -504,12 +504,13 @@ if [ ! -e ${MERGED}/${el}/unrooted-tree_${el}.qza ]; then
      --i-alignment ${MERGED}/${el}/masked-aligned-rep-seqs_${el}.qza \
      --o-tree ${MERGED}/${el}/unrooted-tree_${el}.qza
 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # #########################################               #########################################
-print_centered "16 - qiime phylogeny midpoint-root"
+print_centered "17 - qiime phylogeny midpoint-root"
 << ////
 Usage:
 qiime phylogeny midpoint-root --i-tree unrooted-tree.qza --o-rooted-tree rooted-tree.qza 
@@ -531,13 +532,13 @@ if [ ! -e ${MERGED}/${el}/rooted-tree_${el}.qza  ]; then
      exe qiime phylogeny midpoint-root \
      --i-tree ${MERGED}/${el}/unrooted-tree_${el}.qza \
      --o-rooted-tree ${MERGED}/${el}/rooted-tree_${el}.qza
-
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # # #########################################        BUG      #########################################
-print_centered " - qiime diversity alpha-rarefaction "
+print_centered "18 - qiime diversity alpha-rarefaction "
 << ////
 Usage:
 #qiime diversity alpha-rarefaction --i-table table-dada2.qza --i-phylogeny rooted-tree.qza --p-max-depth 27828 --p-steps 75 --p-iterations 55 --m-metadata-file Metadata_FOB_BS.tsv --p-metrics chao1 --p-metrics simpson_e --p-metrics simpson --p-metrics shannon --p-metrics observed_otus --p-metrics faith_pd --o-visualization rarefaction-curve.qzv
@@ -574,13 +575,13 @@ if [ ! -e ${MERGED}/${el}/rarefaction-curve_${el}.qzv ]; then
      --p-metrics faith_pd \
      --o-visualization ${MERGED}/${el}/rarefaction-curve_${el}.qzv
 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
-
+date
 # #########################################       seems to work        #########################################
-print_centered "17 - qiime diversity beta"
+print_centered "19 - qiime diversity beta"
 << ////
 Usage:
 qiime diversity beta --i-table table-dada2.qza --p-metric braycurtis --o-distance-matrix dada2.braycurtis.notNorm.diversity.qza
@@ -606,12 +607,13 @@ if [ ! -e ${MERGED}/${el}/dada2_braycurtis_notNorm_diversity_${el}.qza ]; then
      --p-metric braycurtis \
      --o-distance-matrix ${MERGED}/${el}/dada2_braycurtis_notNorm_diversity_${el}.qza
 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # #########################################               #########################################
- print_centered "18 - qiime diversity pcoa"
+ print_centered "20 - qiime diversity pcoa"
 << ////
 Usage:
 qiime diversity pcoa --i-distance-matrix dada2.braycurtis.notNorm.diversity.qza --o-pcoa dada2.braycurtis.notNorm.diversity.pcoa.qza
@@ -629,14 +631,13 @@ if [ ! -e ${MERGED}/${el}/dada2_braycurtis_notNorm_diversity_pcoa_${el}.qza ]; t
      --i-distance-matrix ${MERGED}/${el}/dada2_braycurtis_notNorm_diversity_${el}.qza \
      --o-pcoa ${MERGED}/${el}/dada2_braycurtis_notNorm_diversity_pcoa_${el}.qza
      
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
-
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
-
+date
 # # #########################################       BUG        #########################################
-print_centered " - qiime diversity core-metrics-phylogenetic"
+print_centered "21 - qiime diversity core-metrics-phylogenetic"
 << ////
 Usage:
 qiime diversity core-metrics-phylogenetic --i-table table-dada2.qza --i-phylogeny rooted-tree.qza --p-sampling-depth 5801 --output-dir dada2-diversity-5801 --m-metadata-file Metadata_FOB_BS.tsv
@@ -666,12 +667,13 @@ if [ ! -d ${MERGED}/${el}/diversity ]; then
      --i-phylogeny ${MERGED}/${el}/rooted-tree_${el}.qza \
      --p-sampling-depth 5801 \
      --output-dir ${MERGED}/${el}/diversity
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # #########################################               #########################################
-print_centered "19 - qiime gneiss correlation-clustering"
+print_centered "22 - qiime gneiss correlation-clustering"
 << ////
 Usage:
 qiime gneiss correlation-clustering --i-table table-dada2.qza --p-pseudocount 1 --o-clustering hierarchy1.qza         
@@ -696,12 +698,13 @@ if [ ! -e ${MERGED}/${el}/hierarchy_${el}.qza  ]; then
      --p-pseudocount 1 \
      --o-clustering ${MERGED}/${el}/hierarchy_${el}.qza         
 
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # # #########################################               #########################################
-print_centered " - qiime gneiss gradient-clustering"
+print_centered "23 - qiime gneiss gradient-clustering"
 << ////
 Usage:
 qiime gneiss gradient-clustering --i-table table-dada2.qza --m-gradient-file Metadata_FOB_BS.tsv --m-gradient-column TimePoint --o-clustering gradient-hierarchy.qza 
@@ -718,14 +721,13 @@ if [ ! -e ${MERGED}/${el}/gradient-hierarchy_${el}.qza ]; then
       --m-gradient-file ${MetaNames}${el}".csv" \
       --m-gradient-column BMI \
       --o-clustering ${MERGED}/${el}/gradient-hierarchy_${el}.qza
-
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
-
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
+date
 # #########################################               #########################################
-print_centered "20 - qiime gneiss ilr-hierarchical"
+print_centered "24 - qiime gneiss ilr-hierarchical"
 << ////
 Usage:
 qiime gneiss ilr-hierarchical --i-table table-dada2.qza --i-tree hierarchy1.qza --o-balances balances.qza
@@ -756,17 +758,15 @@ for el in F FOB S SOB; do
 
 if [ ! -e ${MERGED}/${el}/balances_${el}.qza ]; then
      begin=$SECONDS
-     qiime gneiss ilr-hierarchical \
+     exe qiime gneiss ilr-hierarchical \
      --i-table ${MERGED}/${el}/run-rep-dada2_${el}.qza  \
      --i-tree ${MERGED}/${el}/hierarchy_${el}.qza  \
      --o-balances ${MERGED}/${el}/balances_${el}.qza
-
-     echo "DONE"
-else echo "ALREADY DONE"
-fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
 done
-
-
+date
 # # #########################################    feature table biom that I don't have            #########################################
 # # print_centered " - "
 # # << ////
@@ -784,168 +784,191 @@ done
 # # else echo "ALREADY DONE"
 # # fi
 # #########################################               #########################################
-# print_centered "21 - qiime picrust2 full-pipeline"
-# << ////
-# beware: not compatible with qiime2-2020.8 but with 2019.10 due to some dependancies
-# wget https://data.qiime2.org/distro/core/qiime2-2019.10-py36-linux-conda.yml
-# conda env create -n qiime2-2019.10 --file qiime2-2019.10-py36-linux-conda.yml
-# # OPTIONAL CLEANUP
-# rm qiime2-2019.10-py36-linux-conda.yml
+print_centered "25 - qiime picrust2 full-pipeline"
+<< ////
+beware: not compatible with qiime2-2020.8 but with 2019.10 due to some dependancies
+wget https://data.qiime2.org/distro/core/qiime2-2019.10-py36-linux-conda.yml --no-check-certificate
+conda env create -n qiime2-2019.10 --file qiime2-2019.10-py36-linux-conda.yml
+# OPTIONAL CLEANUP
+rm qiime2-2019.10-py36-linux-conda.yml
 
-# DO : conda activate qiime2-2019.10 
-# and install q2-picrust2 with conda
-# Instruction :  conda install -c gavinmdouglas q2-picrust2 
-# Usage:
+DO : conda activate qiime2-2019.10 
+and install q2-picrust2 with conda
+Instruction :  conda install -c gavinmdouglas q2-picrust2 
+Usage:
 
-# qiime picrust2 full-pipeline --i-table table-dada2.qza --i-seq rep-seqs-dada2.qza --output-dir q2-picrust2_output --p-threads 1 --p-hsp-method pic --p-max-nsti 2 --verbose
+qiime picrust2 full-pipeline --i-table table-dada2.qza --i-seq rep-seqs-dada2.qza --output-dir q2-picrust2_output --p-threads 1 --p-hsp-method pic --p-max-nsti 2 --verbose
 
-# Utility: 
-#   QIIME 2 plugin for default 16S PICRUSt2 pipeline
+Utility: 
+  QIIME 2 plugin for default 16S PICRUSt2 pipeline
 
-# To Do: need to install qiime2 https://forum.qiime2.org/t/qiime2-modulenotfounderror-with-picrust2-plugin-installation/8985/2 
-# ////
+To Do: need to install qiime2 https://forum.qiime2.org/t/qiime2-modulenotfounderror-with-picrust2-plugin-installation/8985/2 
+////
 
-# if [ ! -d ${picrustOUT} ]; then
-#      begin=$SECONDS
-#      qiime picrust2 full-pipeline \
-#      --i-table ${OUT}/table-dada2.qza \
-#      --i-seq ${OUT}/rep-seqs-dada2.qza \
-#      --output-dir ${picrustOUT} \
-#      --p-threads ${threads} \
-#      --p-hsp-method pic \
-#      --p-max-nsti 2 --verbose
+for el in F FOB S SOB; do
 
-#      echo "DONE"
-# else echo "ALREADY DONE"
-# fi
+if [ ! -d ${MERGED}/${el}/picrust2 ]; then
+     begin=$SECONDS
+     exe qiime picrust2 full-pipeline \
+     --i-table ${MERGED}/${el}/run-rep-dada2_${el}.qza \
+     --i-seq ${MERGED}/${el}/data-dada2_${el}_filtered.qza \
+     --output-dir ${MERGED}/${el}/picrust2 \
+     --p-threads ${threads} \
+     --p-hsp-method pic \
+     --p-max-nsti 2 --verbose > ${LOG}/picrust2_${el}.log 2>&1 
+
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # #########################################               #########################################
-# print_centered "22 -  BUG - qiime diversity core-metrics "
-# # << ////
-# # Usage:
-# # qiime diversity core-metrics --i-table q2-picrust2_output/pathway_abundance.qza --p-sampling-depth 	548854 --m-metadata-file Metadata_FOB_BS.tsv --output-dir pathabun_core_metrics_out --p-n-jobs 1
+print_centered "26 -  qiime diversity core-metrics "
+<< ////
+Usage:
+qiime diversity core-metrics --i-table q2-picrust2_output/pathway_abundance.qza --p-sampling-depth 	548854 --m-metadata-file Metadata_FOB_BS.tsv --output-dir pathabun_core_metrics_out --p-n-jobs 1
 
-# # Inputs:
-# #   --i-table ARTIFACT FeatureTable[Frequency]
-# #                        The feature table containing the samples over which
-# #                        diversity metrics should be computed.
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency]
+                       The feature table containing the samples over which
+                       diversity metrics should be computed.
 
-# # Utility: 
-# #       Applies a collection of diversity metrics (non-phylogenetic) to a feature
-# #         table.
-  
-# # To Do:
-# # Supposition : ${OUT}/pathway_abundance.qza must have been created by the picrust2 command. 
-# # ////
-# # if [ ! -d ${pathOUT} ]; then
-# #      begin=$SECONDS
-# #     qiime diversity core-metrics \
-# #       --i-table ${picrustOUT}/pathway_abundance.qza \
-# #       --p-sampling-depth 	548854 \
-# #       --m-metadata-file ${MetaNames} \
-# #       --output-dir ${pathOUT} 
-# #      echo "DONE"
-# # else echo "ALREADY DONE"
-# # fi
+Utility: 
+      Applies a collection of diversity metrics (non-phylogenetic) to a feature
+        table.
+
+exout: pathabun_core_metrics_out
+To Do:
+Supposition : ${OUT}/pathway_abundance.qza must have been created by the picrust2 command. 
+////
+for el in F FOB S SOB; do
+
+if [ ! -d ${MERGED}/${el}/core_metrics ]; then
+    begin=$SECONDS
+    exe qiime diversity core-metrics \
+      --i-table ${MERGED}/${el}/picrust2/pathway_abundance.qza \
+      --p-sampling-depth 	548854 \
+      --m-metadata-file ${MetaNames}${el}".csv" \
+      --output-dir ${MERGED}/${el}/core_metrics 
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # # #########################################               #########################################
-# print_centered "23 - BUG - qiime tools export"
-# # << ////
-# # Usage:
-# # qiime tools export --input-path q2-picrust2_output/pathway_abundance.qza --output-path pathabun_exported 
+print_centered "qiime tools export"
+print_centered "creation of feature-table.biom files"
+<< ////
+Usage:
+qiime tools export --input-path q2-picrust2_output/pathway_abundance.qza --output-path pathabun_exported 
 
-# # Utility: 
+Utility: 
 
-# # To Do:
-# # ////
-# # if [ ! -d ${picrustOUT}/export ]; then
-# #     mkdir ${picrustOUT}/export
-# #     begin=$SECONDS
-# #     qiime tools export \
-# #       --input-path ${picrustOUT}/pathway_abundance.qza \
-# #       --output-path ${picrustOUT}/export
+To Do:
+////
+for el in F FOB S SOB; do
 
-# #      echo "DONE"
-# # else echo "ALREADY DONE"
-# # fi
+if [ ! -d ${MERGED}/${el}/export_picrust2 ]; then
+    begin=$SECONDS
+    exe qiime tools export \
+      --input-path ${MERGED}/${el}/picrust2/pathway_abundance.qza \
+      --output-path ${MERGED}/${el}/export_picrust2
 
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # #########################################               #########################################
-# print_centered "24 - result BUG -> can't - biom convert pathway abundance picrust2 output"
-# # << ////
-# # Usage:
-# # biom convert -i pathabun_exported/feature-table.biom -o pathabun_exported/feature-table.biom.tsv --to-tsv
+print_centered "result"
+<< ////
+Usage:
+biom convert -i pathabun_exported/feature-table.biom -o pathabun_exported/feature-table.biom.tsv --to-tsv
 
-# # Utility: 
+Utility: 
 
-# # To Do:
-# # ////
-# # if [ ! -e ${picrustOUT}/export/feature-table.biom.tsv ]; then
-# #      begin=$SECONDS
-# #       biom convert -i ${picrustOUT}/export/feature-table.biom \
-# #       -o ${picrustOUT}/export/feature-table.biom.tsv --to-tsv
+To Do:
+////
+for el in F FOB S SOB; do
 
-# #      echo "DONE"
-# # else echo "ALREADY DONE"
-# # fi
+if [ ! -e ${MERGED}/${el}/export_picrust2/feature-table_biom_${el}.tsv ]; then
+     begin=$SECONDS
+      exe biom convert -i ${MERGED}/${el}/export_picrust2/feature-table.biom \
+      -o ${MERGED}/${el}/export_picrust2/feature-table_biom_${el}.tsv --to-tsv
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # ########################################               #########################################
-# print_centered "25 - qiime feature-table relative-frequency "
-# << ////
-# Usage:
-# qiime feature-table relative-frequency --i-table pathway_abundance.qza --o-relative-frequency-table pathway_rel-freq.qza   
+print_centered "27 - qiime feature-table relative-frequency "
+<< ////
+Usage:
+qiime feature-table relative-frequency --i-table pathway_abundance.qza --o-relative-frequency-table pathway_rel-freq.qza   
 
-# Utility: Convert frequencies to relative frequencies by dividing each frequency in
-#   a sample by the sum of frequencies in that sample.
+Utility: Convert frequencies to relative frequencies by dividing each frequency in
+  a sample by the sum of frequencies in that sample.
 
-# To Do:
-# ////
-# if [ ! -e ${picrustOUT}/pathway_rel-freq.qza  ]; then
-#      begin=$SECONDS
-#     qiime feature-table relative-frequency \
-#       --i-table ${picrustOUT}/pathway_abundance.qza \
-#       --o-relative-frequency-table ${picrustOUT}/pathway_rel-freq.qza   
+To Do:
+////
+for el in F FOB S SOB; do
 
-#      echo "DONE"
-# else echo "ALREADY DONE"
-# fi
+if [ ! -e ${MERGED}/${el}/picrust2/pathway_rel-freq_${el}.qza ]; then
+     begin=$SECONDS
+     exe qiime feature-table relative-frequency \
+      --i-table ${MERGED}/${el}/picrust2/pathway_abundance.qza \
+      --o-relative-frequency-table ${MERGED}/${el}/picrust2/pathway_rel-freq_${el}.qza   
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # #########################################               #########################################
-# print_centered "26 - qiime tools export pathway_rel-freq.qza "
-# << ////
-# Usage:
-# qiime tools export --input-path /data/icb/16sRNA_DAVID/work/ob_Bariatric_Surgery/feces/q2-picrust2_output/pathway_rel-freq.qza --output-path /data/icb/16sRNA_DAVID/work/ob_Bariatric_Surgery/feces/q2-picrust2_output/pathway_rel-freq
+print_centered "qiime tools export pathway_rel-freq.qza "
+print_centered "creation of feature-table.biom files"
+<< ////
+Usage:
+qiime tools export --input-path /data/icb/16sRNA_DAVID/work/ob_Bariatric_Surgery/feces/q2-picrust2_output/pathway_rel-freq.qza --output-path /data/icb/16sRNA_DAVID/work/ob_Bariatric_Surgery/feces/q2-picrust2_output/pathway_rel-freq
 
-# Utility: 
+Utility: 
 
-# To Do:
-# ////
+To Do:
+////
+for el in F FOB S SOB; do
 
-# if [ ! -e ${picrustOUT}/pathway_rel-freq   ]; then
-#      begin=$SECONDS
-#     qiime tools export \
-#     --input-path ${picrustOUT}/pathway_rel-freq.qza   \
-#     --output-path ${picrustOUT}/pathway_rel-freq  
+if [ ! -e ${MERGED}/${el}/path_rel-freq_picrust2    ]; then
+     begin=$SECONDS
+    exe qiime tools export \
+    --input-path ${MERGED}/${el}/picrust2/pathway_rel-freq_${el}.qza    \
+    --output-path ${MERGED}/${el}/path_rel-freq_picrust2  
 
-#      echo "DONE"
-# else echo "ALREADY DONE"
-# fi
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # ########################################               #########################################
-# print_centered "27 - biom convert  pathway ref freq to tsv"
-# << ////
-# Usage:
-# biom convert -i feature-table.biom -o pathway_rel-freq_tsv.txt --to-tsv
+print_centered "biom convert pathway ref freq to tsv"
+<< ////
+Usage:
+biom convert -i feature-table.biom -o pathway_rel-freq_tsv.txt --to-tsv
 
-# Utility: 
+Utility: 
 
-# To Do:
-# ////
-# if [ ! -e ${picrustOUT}/pathway_rel-freq_tsv.txt ]; then
-#      begin=$SECONDS
-#     biom convert \
-#     -i ${picrustOUT}/pathway_rel-freq/feature-table.biom \
-#     -o ${picrustOUT}/pathway_rel-freq_tsv.txt --to-tsv
+To Do:
+////
+for el in F FOB S SOB; do
 
-#      echo "DONE"
-# else echo "ALREADY DONE"
-# fi
-
-
+if [ ! -e ${MERGED}/${el}/path_rel-freq_picrust2/pathway_rel-freq_${el}_tsv.txt  ]; then
+     begin=$SECONDS
+    exe biom convert \
+    -i ${MERGED}/${el}/path_rel-freq_picrust2/feature-table.biom \
+    -o ${MERGED}/${el}/path_rel-freq_picrust2/pathway_rel-freq_${el}_tsv.txt --to-tsv
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 
 
 
