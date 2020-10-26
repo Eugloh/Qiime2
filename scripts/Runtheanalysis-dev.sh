@@ -767,22 +767,64 @@ else echo -e ${el} "\tALREADY DONE"
 fi 
 done
 date
-# # #########################################    feature table biom that I don't have            #########################################
-# # print_centered " - "
-# # << ////
-# # Usage:
-# # qiime tools import --input-path feature-table.biom --type 'FeatureTable[Frequency]' --input-format BIOMV210Format --output-path feature-table2.qza    
+# #########################################               #########################################
+print_centered "qiime tools export"
+<< ////
+Usage:
+qiime tools export --input-path table-dada2.qza --output-path exported-table-dada2.tsv
+Utility: 
 
-# # Utility: 
+To Do:
+////
+if [ ! -e ${MERGED}/export ]; then
+     begin=$SECONDS
+    exe qiime tools export \
+      --input-path ${MERGED}/table-dada2_merged.qza \
+      --output-path ${MERGED}/export
+     echo "DONE"
+else echo "ALREADY DONE"
+fi
 
-# # To Do:
-# # ////
-# # if [ ! -e ${OUT}/... ]; then
-# #      begin=$SECONDS
+# #########################################               #########################################
+print_centered "biom convert"
+<< ////
+Usage:
+biom convert -i feature-table.biom -o feature-table.tsv --to-tsv
 
-# #      echo "DONE"
-# # else echo "ALREADY DONE"
-# # fi
+Utility: 
+
+To Do:
+////
+if [ ! -e ${MERGED}/export/feature-table.tsv ]; then
+     begin=$SECONDS
+    exe biom convert \
+    -i ${MERGED}/export/feature-table.biom -o ${MERGED}/export/feature-table.tsv --to-tsv
+     echo "DONE"
+else echo "ALREADY DONE"
+fi
+
+# #########################################               #########################################
+print_centered "summerize"
+<< ////
+Usage:
+qiime feature-table summarize --i-table table-dada2.qza --o-visualization table-dada2.qzv --m-sample-metadata-file metadata.tsv
+
+Utility: 
+
+To Do:
+////
+if [ ! -e ${MERGED}/table-dada2_merged.qzv  ]; then
+     begin=$SECONDS
+    exe qiime feature-table summarize \
+      --i-table ${MERGED}/table-dada2_merged.qza \
+      --o-visualization ${MERGED}/table-dada2_merged.qzv \
+      --m-sample-metadata-file ${MetaNames}"_all.csv"
+    
+    echo "DONE"
+else echo "ALREADY DONE"
+fi
+
+
 # #########################################               #########################################
 print_centered "25 - qiime picrust2 full-pipeline"
 << ////
