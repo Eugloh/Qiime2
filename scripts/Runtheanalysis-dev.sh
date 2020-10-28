@@ -32,6 +32,7 @@ OUT=${DIR}"/output"
 LOG=${DIR}"/log"
 MERGED=${OUT}"/merged"
 OTU_database=${DIR}"/database/greengenes"
+HOMD_database=${DIR}"/database/HOMD"
 threads=32
 
 # we have always used the same primer to amplify the V3-V4 sequences of the 16sRNA gene
@@ -286,6 +287,19 @@ else echo "ALREADY DONE"
 fi
 date
 #########################################               #########################################
+print_centered "7.5 - HOMD - qiime tools import otus fasta"
+
+
+if [ ! -e ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2.p9.qza ]; then
+exe qiime tools import \
+     --input-path ${HOMD_database}/HOMD_16S_rRNA_RefSeq_V15.2.p9.fasta \
+     --output-path ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2.p9.qza \
+     --type 'FeatureData[Sequence]'
+      echo "DONE"
+else echo "ALREADY DONE"
+fi
+date
+#########################################               #########################################
 print_centered "8 - qiime tools import taxonomy otus"
 
 << ////
@@ -303,6 +317,20 @@ exe qiime tools import \
      --input-path ${OTU_database}/99_otu_taxonomy.txt \
      --input-format HeaderlessTSVTaxonomyFormat \
      --output-path ${OUT}/99_otu_taxonomy.qza
+        echo "DONE"
+else echo "ALREADY DONE"
+fi
+date
+#########################################               #########################################
+print_centered "8.5 -HOMD - qiime tools import taxonomy otus"
+
+
+if [ ! -e ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2_taxonomy.qza ]; then
+exe qiime tools import \
+     --type FeatureData[Taxonomy] \
+     --input-path ${HOMD_database}/HOMD_16S_rRNA_RefSeq_V15.2.qiime.taxonomy \
+     --input-format HeaderlessTSVTaxonomyFormat \
+     --output-path ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2_taxonomy.qza
         echo "DONE"
 else echo "ALREADY DONE"
 fi
@@ -334,6 +362,21 @@ if [ ! -e ${OUT}/99_otus-ref.seqs.qza ]; then
 else echo "ALREADY DONE"
 fi
 date
+#########################################                #########################################
+print_centered "9.5 -HOMD- qiime feature-classifier extract-reads "
+
+if [ ! -e ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2.p9-ref.seqs.qza ]; then
+     begin=$SECONDS
+    exe qiime feature-classifier extract-reads \
+     --i-sequences ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2.p9.qza \
+     --p-f-primer CCTACGGGNGGCWGCAG \
+     --p-r-primer GACTACHVGGGTATCTAATCC \
+     --o-reads ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2.p9-ref.seqs.qza
+
+     echo "DONE"
+else echo "ALREADY DONE"
+fi
+date
 
 #########################################               #########################################
 print_centered "10 - qiime feature-classifier fit-classifier-naive-bayes"
@@ -355,6 +398,19 @@ if [ ! -e ${OUT}/classifier.trained.qza ]; then
      --i-reference-reads ${OUT}/99_otus-ref.seqs.qza \
      --i-reference-taxonomy ${OUT}/99_otu_taxonomy.qza \
      --o-classifier ${OUT}/classifier.trained.qza
+     echo "DONE"
+else echo "ALREADY DONE"
+fi
+date
+#########################################               #########################################
+print_centered "10.5 -HOMD- qiime feature-classifier fit-classifier-naive-bayes"
+
+if [ ! -e ${OUT}/HOMD_classifier.trained.qza ]; then
+     begin=$SECONDS
+     exe qiime feature-classifier fit-classifier-naive-bayes \
+     --i-reference-reads ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2.p9-ref.seqs.qza \
+     --i-reference-taxonomy ${OUT}/HOMD_16S_rRNA_RefSeq_V15.2_taxonomy.qza \
+     --o-classifier ${OUT}/HOMD_classifier.trained.qza
      echo "DONE"
 else echo "ALREADY DONE"
 fi
@@ -383,6 +439,21 @@ else echo -e ${el} "\tALREADY DONE"
 fi 
 done
 date
+#########################################               #########################################
+print_centered "11.5 -HOMD- qiime feature-classifier classify-sklearn"
+
+for el in  S SOB S_all ; do
+if [ ! -e ${MERGED}/${el}/newtaxonomy-HOMD.sklearn_${el}.qza  ]; then
+     begin=$SECONDS
+     exe qiime feature-classifier classify-sklearn \
+     --i-classifier ${OUT}/HOMD_classifier.trained.qza \
+     --i-reads ${MERGED}/${el}/data-dada2_${el}_filtered.qza \
+     --o-classification ${MERGED}/${el}/newtaxonomy-HOMD.sklearn_${el}.qza 
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # # #########################################               #########################################
 print_centered "12  - qiime taxa collapse "
 << ////
@@ -404,6 +475,23 @@ if [ ! -e ${MERGED}/${el}/freq_${el}.qza ]; then
      --i-taxonomy ${MERGED}/${el}/newtaxonomy.sklearn_${el}.qza   \
      --p-level 2 \
      --o-collapsed-table ${MERGED}/${el}/freq_${el}.qza
+
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
+# # #########################################               #########################################
+print_centered "12.5 -HOMD- qiime taxa collapse "
+
+for el in S SOB S_all ; do
+if [ ! -e ${MERGED}/${el}/HOMD-freq_${el}.qza ]; then
+     begin=$SECONDS
+     exe qiime taxa collapse \
+     --i-table ${MERGED}/${el}/run-rep-dada2_${el}.qza \
+     --i-taxonomy ${MERGED}/${el}/newtaxonomy-HOMD.sklearn_${el}.qza    \
+     --p-level 2 \
+     --o-collapsed-table ${MERGED}/${el}/HOMD-freq_${el}.qza
 
      echo -e ${el} "\tDONE"
 else echo -e ${el} "\tALREADY DONE"
@@ -441,6 +529,21 @@ else echo -e ${el} "\tALREADY DONE"
 fi 
 done
 date
+# # # ########################################               #########################################
+print_centered " 13.5 -HOMD- qiime feature-table relative-frequency"
+
+for el in S SOB S_all ; do
+if [ ! -e  ${MERGED}/${el}/HOMD-relative_freq_${el}.qza ]; then
+     begin=$SECONDS
+     exe qiime feature-table relative-frequency \
+     --i-table ${MERGED}/${el}/HOMD-freq_${el}.qza \
+     --o-relative-frequency-table ${MERGED}/${el}/HOMD-relative_freq_${el}.qza \
+     --verbose > ${LOG}/HOMD-qiime-feature-table-relative-frequency_${el}.log 2>&1
+     echo -e ${el} "\tDONE"
+else echo -e ${el} "\tALREADY DONE"
+fi 
+done
+date
 # #########################################            #########################################
 print_centered "14 - qiime alignment mafft "
 << ////
@@ -469,6 +572,7 @@ else echo -e ${el} "\tALREADY DONE"
 fi 
 done
 date
+
 # #########################################               #########################################
 print_centered "15 - qiime alignment mask"
 << ////
@@ -971,7 +1075,7 @@ if [ ! -e ${MERGED}/${el}/picrust2/pathway_rel-freq_${el}.qza ]; then
      begin=$SECONDS
      exe qiime feature-table relative-frequency \
       --i-table ${MERGED}/${el}/picrust2/pathway_abundance.qza \
-      --o-relative-frequency-table ${MERGED}/${el}/picrust2/pathway_rel-freq_${el}.qza   
+      --o-relative-frequency-table ${MERGED}/${el}/picrust2/pathway_rel-freq.qza   
      echo -e ${el} "\tDONE"
 else echo -e ${el} "\tALREADY DONE"
 fi 
@@ -980,52 +1084,49 @@ date
 # #########################################               #########################################
 print_centered "qiime tools export pathway_rel-freq.qza "
 print_centered "creation of feature-table.biom files"
-<< ////
-Usage:
-qiime tools export --input-path /data/icb/16sRNA_DAVID/work/ob_Bariatric_Surgery/feces/q2-picrust2_output/pathway_rel-freq.qza --output-path /data/icb/16sRNA_DAVID/work/ob_Bariatric_Surgery/feces/q2-picrust2_output/pathway_rel-freq
-
-Utility: 
-
-To Do:
-////
-for el in F FOB S SOB F_all S_all all; do
-
-if [ ! -e ${MERGED}/${el}/path_rel-freq_picrust2    ]; then
-     begin=$SECONDS
-    exe qiime tools export \
-    --input-path ${MERGED}/${el}/picrust2/pathway_rel-freq_${el}.qza    \
-    --output-path ${MERGED}/${el}/path_rel-freq_picrust2  
-
-     echo -e ${el} "\tDONE"
-else echo -e ${el} "\tALREADY DONE"
-fi 
-done
-date
-# ########################################               #########################################
 print_centered "biom convert pathway ref freq to tsv"
+
+###################### conversion of picrust2 output #########################################
+print_centered "conversion of picrust2 output"
+
 << ////
-Usage:
-biom convert -i feature-table.biom -o pathway_rel-freq_tsv.txt --to-tsv
+qiime tools export --input-path ${el}.qza --output-path ${el} 
 
-Utility: 
+for el in $(ls | cut -d"." -f1 | uniq ) ; do biom convert -i ${el}/feature-table.biom -o ${el}/${el}.tsv --to-tsv ; done
 
-To Do:
+sed -i '1d'
 ////
 for el in F FOB S SOB F_all S_all all; do
+for item in $(ls ${MERGED}/${el}/picrust2 | cut -d"." -f1 ); do 
+if [ ! -d  ${MERGED}/${el}/picrust2/${item} ]; then
+    begin=$SECONDS
+    exe  qiime tools export \
+    --input-path ${MERGED}/${el}/picrust2/${item}.qza \
+    --output-path ${MERGED}/${el}/picrust2/${item}
 
-if [ ! -e ${MERGED}/${el}/path_rel-freq_picrust2/pathway_rel-freq_${el}_tsv.txt  ]; then
-     begin=$SECONDS
-    exe biom convert \
-    -i ${MERGED}/${el}/path_rel-freq_picrust2/feature-table.biom \
-    -o ${MERGED}/${el}/path_rel-freq_picrust2/pathway_rel-freq_${el}_tsv.txt --to-tsv
-     echo -e ${el} "\tDONE"
-else echo -e ${el} "\tALREADY DONE"
+     echo -e ${el} "\t"  ${item} "\tDONE"
+else echo -e ${el} "\t"  ${item} "\tALREADY DONE"
 fi 
 done
+done
+
+
+for el in F FOB S SOB F_all S_all all; do
+for item in $(ls ${MERGED}/${el}/picrust2 | cut -d"." -f1 | sort | uniq ); do 
+if [ ! -d  ${MERGED}/${el}/picrust2/${item}_${el}.tsv ]; then
+    begin=$SECONDS
+    exe  biom convert \
+      -i ${MERGED}/${el}/picrust2/${item}/feature-table.biom \
+      -o ${MERGED}/${el}/picrust2/${item}_${el}.tsv --to-tsv
+
+     echo -e ${el} "\t"  ${item} "\tDONE"
+else echo -e ${el} "\t"  ${item} "\tALREADY DONE"
+fi 
+done
+done
+
+
 date
-
-
-
 
 
 
